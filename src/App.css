@@ -508,6 +508,17 @@ body {
 }
 
 /* Responsive design */
+@media (max-width: 1024px) {
+  .detail-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .detail-view {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .app {
     padding: 15px;
@@ -520,11 +531,6 @@ body {
   .openings-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  
-  .detail-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
   }
   
   .filter-buttons {
@@ -540,6 +546,44 @@ body {
     flex-direction: column;
     gap: 10px;
   }
+  
+  .detail-info, .detail-board-section {
+    padding: 25px;
+  }
+  
+  .detail-title {
+    font-size: 1.6rem;
+  }
+  
+  .detail-moves {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 10px;
+  }
+  
+  .detail-info, .detail-board-section {
+    padding: 20px;
+  }
+  
+  .detail-title {
+    font-size: 1.4rem;
+  }
+  
+  .detail-moves {
+    font-size: 0.95rem;
+  }
+  
+  .detail-header {
+    margin-bottom: 20px;
+  }
+  
+  .detail-content {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -548,19 +592,43 @@ body {
   }
   
   .detail-info, .detail-board-section {
-    padding: 20px;
+    padding: 15px;
   }
   
   .detail-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   
-  /* Make chessboards responsive on mobile */
+  .detail-moves {
+    font-size: 0.9rem;
+  }
+  
+  .back-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .detail-eco {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .detail-favorite-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Chessboard responsive scaling */
+@media (max-width: 480px) {
+  /* Scale down card chessboards slightly on very small screens */
+  .board-container {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 400px) {
   .board-container {
     transform: scale(0.9);
-  }
-  
-  .detail-board-section {
-    transform: scale(0.8);
   }
 }
