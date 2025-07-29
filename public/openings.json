@@ -17,11 +17,80 @@
     "pgn": "1. f4",
     "fen": "rnbqkbnr/pppppppp/8/8/5P2/8/PPPPP1PP/RNBQKBNR b KQkq - 0 1"
   },
+   {
+    "eco": "A04",
+    "name": "Réti Opening",
+    "pgn": "1. Nf3",
+    "fen": "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",
+    "description": "A hypermodern opening that develops the knight first while keeping maximum flexibility for pawn structure. Named after Richard Réti, this opening can transpose into many different systems based on Black's response.",
+    "strategy": "White maintains maximum flexibility and can transpose into various pawn structures depending on Black's setup. The strategy involves controlling the center through pieces and choosing the optimal pawn structure based on Black's moves. Common continuations include g3-Bg2 or d4 systems.",
+    "difficulty": "Intermediate",
+    "variations": [
+      {
+        "name": "King's Indian Attack",
+        "eco": "A07",
+        "moves": "1...d5 2. g3 Nf6 3. Bg2 e6 4. 0-0",
+        "pgn": "1. Nf3 d5 2. g3 Nf6 3. Bg2 e6 4. 0-0",
+        "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/8/5NP1/PPPPPPBP/RNBQ1RK1 b kq - 1 4",
+        "description": "Universal system with kingside fianchetto",
+        "difficulty": "Beginner",
+        "frequency": "40%",
+        "popularity": "High"
+      },
+      {
+        "name": "Réti Gambit",
+        "eco": "A09",
+        "moves": "1...d5 2. c4",
+        "pgn": "1. Nf3 d5 2. c4",
+        "fen": "rnbqkbnr/ppp1pppp/8/3p4/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq - 0 2",
+        "description": "Transposes to English Opening or Queen's Gambit structures",
+        "difficulty": "Intermediate",
+        "frequency": "35%",
+        "popularity": "High"
+      }
+    ]
+  },
   {
     "eco": "A10",
     "name": "English Opening",
     "pgn": "1. c4",
-    "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1"
+    "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+    "description": "A flexible hypermodern opening that controls the center from the side and can transpose into many other openings. Popular among positional players who prefer strategic complexity over tactical sharpness.",
+    "strategy": "White aims to control the central d5 and e4 squares while maintaining maximum flexibility in piece development. The opening often leads to reversed openings or unique pawn structures. White typically develops with Nf3, g3, Bg2, creating a strong fianchetto setup.",
+    "difficulty": "Intermediate"
+  },
+  {
+    "eco": "A13",
+    "name": "English Opening, Neo-Catalan",
+    "pgn": "1. c4 e6 2. g3 d5 3. Bg2",
+    "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2P5/6P1/PP1PPPBP/RNBQK1NR b KQkq - 1 3",
+    "description": "A sophisticated positional opening that combines English Opening ideas with Catalan-style piece development. White creates a powerful fianchettoed bishop while maintaining central flexibility.",
+    "strategy": "White develops harmoniously with Nf3, 0-0, and maintains pressure on the long diagonal while keeping options open for central breaks. The strategy involves controlling key squares and creating long-term positional pressure rather than immediate tactical complications.",
+    "difficulty": "Intermediate",
+    "variations": [
+      {
+        "name": "Symmetrical Variation",
+        "eco": "A14",
+        "moves": "3...c5",
+        "pgn": "1. c4 e6 2. g3 d5 3. Bg2 c5",
+        "fen": "rnbqkbnr/pp3ppp/4p3/2pp4/2P5/6P1/PP1PPPBP/RNBQK1NR w KQkq - 0 4",
+        "description": "Black mirrors White's central control with symmetrical pawn structure",
+        "difficulty": "Intermediate",
+        "frequency": "40%",
+        "popularity": "High"
+      },
+      {
+        "name": "Hedgehog System",
+        "eco": "A17",
+        "moves": "3...Nf6 4. Nf3 Be7 5. 0-0 0-0 6. b3",
+        "pgn": "1. c4 e6 2. g3 d5 3. Bg2 Nf6 4. Nf3 Be7 5. 0-0 0-0 6. b3",
+        "fen": "rnbq1rk1/ppb2ppp/4pn2/3p4/2P5/1P3NP1/P2PPPBP/RNBQ1RK1 b - - 0 6",
+        "description": "Flexible setup allowing Black to expand in the center later",
+        "difficulty": "Advanced",
+        "frequency": "30%",
+        "popularity": "Medium"
+      }
+    ]
   },
   {
     "eco": "A20",
@@ -29,11 +98,38 @@
     "pgn": "1. c4 e5",
     "fen": "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 2"
   },
-  {
+ {
     "eco": "A40",
-    "name": "Queen's Pawn Game",
-    "pgn": "1. d4",
-    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1"
+    "name": "Benoni Defense, Modern Benoni",
+    "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6",
+    "fen": "rnbqkb1r/pp3ppp/3p1n2/2pP4/8/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 6",
+    "description": "A dynamic and aggressive defense where Black creates an asymmetrical pawn structure and seeks active piece play. The Modern Benoni leads to complex strategic battles with chances for both sides.",
+    "strategy": "Black accepts a space disadvantage in exchange for piece activity and counterplay on the queenside and kingside. The plan involves ...g6, ...Bg7, ...0-0, and creating pressure with moves like ...Re8, ...a6, and ...b5. White typically expands on the kingside with f4-f5.",
+    "difficulty": "Advanced",
+    "variations": [
+      {
+        "name": "Classical System",
+        "eco": "A70",
+        "moves": "6. e4 g6 7. Nf3 Bg7 8. Be2",
+        "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6 6. e4 g6 7. Nf3 Bg7 8. Be2",
+        "fen": "rnbqk2r/pp3pbp/3p1np1/2pP4/4P3/2N2N2/PP2BPPP/R1BQK2R b KQkq - 3 8",
+        "description": "Solid development preparing kingside castling",
+        "difficulty": "Advanced",
+        "frequency": "50%",
+        "popularity": "High"
+      },
+      {
+        "name": "Four Pawns Attack",
+        "eco": "A69",
+        "moves": "6. e4 g6 7. f4",
+        "pgn": "1. d4 Nf6 2. c4 c5 3. d5 e6 4. Nc3 exd5 5. cxd5 d6 6. e4 g6 7. f4",
+        "fen": "rnbqkb1r/pp3p1p/3p1np1/2pP4/4PP2/2N5/PP4PP/R1BQKBNR b KQkq - 0 7",
+        "description": "Aggressive pawn storm in the center and kingside",
+        "difficulty": "Advanced",
+        "frequency": "30%",
+        "popularity": "Medium"
+      }
+    ]
   },
   {
     "eco": "A45",
@@ -51,7 +147,10 @@
     "eco": "B01",
     "name": "Scandinavian Defense",
     "pgn": "1. e4 d5",
-    "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "description": "An uncompromising defense where Black immediately challenges White's center pawn. Simple to learn and leads to clear strategic patterns, making it popular among club players.",
+    "strategy": "Black exchanges the d5 pawn for White's e4 pawn and typically recaptures with the queen, leading to early queen development. The plan involves quick development and seeking active piece play to compensate for the early queen moves. White aims to gain time by attacking the black queen.",
+    "difficulty": "Beginner"
   },
   {
     "eco": "B06",
@@ -63,7 +162,10 @@
     "eco": "B10",
     "name": "Caro-Kann Defense",
     "pgn": "1. e4 c6",
-    "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "description": "A solid, reliable defense that leads to slightly passive but very safe positions for Black. Unlike the French Defense, Black can develop the light-squared bishop more easily.",
+    "strategy": "Black prepares ...d5 to challenge White's center while maintaining a solid pawn structure. The key idea is to develop pieces harmoniously without creating weaknesses. Black typically gets a slightly cramped but safe position with good defensive resources and counterplay possibilities.",
+    "difficulty": "Beginner"
   },
   {
     "eco": "B12",
@@ -75,7 +177,10 @@
     "eco": "B20",
     "name": "Sicilian Defense",
     "pgn": "1. e4 c5",
-    "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "description": "The most popular and successful defense against 1.e4, favored by aggressive players seeking winning chances with the black pieces. Black immediately challenges White's central control from the side.",
+    "strategy": "Black aims for asymmetrical pawn structures that create imbalanced positions with chances for both sides. The plan involves controlling the d4 square, developing pieces actively, and creating counterplay on the queenside or center. White typically responds with the Open Sicilian (2.Nf3 3.d4) for sharp tactical play.",
+    "difficulty": "Advanced"
   },
   {
     "eco": "B21",
@@ -84,22 +189,124 @@
     "fen": "rnbqkbnr/pp1ppppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3"
   },
   {
+    "eco": "B22",
+    "name": "Sicilian Defense, Alapin Variation",
+    "pgn": "1. e4 c5 2. c3",
+    "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/2P5/PP1P1PPP/RNBQKBNR b KQkq - 0 2",
+    "description": "A solid positional approach to the Sicilian that avoids the main theoretical lines. White prepares d4 with pawn support, leading to a different type of position than the Open Sicilian.",
+    "strategy": "White aims to build a strong pawn center with d4 supported by the c3 pawn, then develop pieces harmoniously. The strategy involves controlling the center and seeking a slight but lasting advantage through superior pawn structure. Black typically responds with ...d5 or ...Nf6, seeking quick development.",
+    "difficulty": "Beginner",
+    "variations": [
+      {
+        "name": "Barmen Defense",
+        "eco": "B22",
+        "moves": "2...d5",
+        "pgn": "1. e4 c5 2. c3 d5",
+        "fen": "rnbqkbnr/pp2pppp/8/2pp4/4P3/2P5/PP1P1PPP/RNBQKBNR w KQkq - 0 3",
+        "description": "Direct central challenge creating immediate tension",
+        "difficulty": "Intermediate",
+        "frequency": "45%",
+        "popularity": "High"
+      },
+      {
+        "name": "Sicilian Defense",
+        "eco": "B22",
+        "moves": "2...Nf6",
+        "pgn": "1. e4 c5 2. c3 Nf6",
+        "fen": "rnbqkb1r/pp1ppppp/5n2/2p5/4P3/2P5/PP1P1PPP/RNBQKBNR w KQkq - 1 3",
+        "description": "Natural development maintaining flexibility",
+        "difficulty": "Beginner",
+        "frequency": "35%",
+        "popularity": "High"
+      }
+    ]
+  },
+  {
     "eco": "B27",
     "name": "Sicilian, Hyperaccelerated Dragon",
     "pgn": "1. e4 c5 2. Nf3 g6",
     "fen": "rnbqkbnr/pp1ppp1p/6p1/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
   },
+    {
+    "eco": "B33",
+    "name": "Sicilian Defense, Accelerated Dragon",
+    "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6",
+    "fen": "r1bqkbnr/pp1ppp1p/2n3p1/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5",
+    "description": "A hypermodern defense where Black develops the kingside quickly and fianchettoes the bishop to create pressure on the long diagonal. The 'accelerated' version avoids ...d6, allowing more flexibility.",
+    "strategy": "Black aims for quick kingside development with ...Bg7, ...Nf6, and ...0-0 while maintaining central flexibility. The strategy involves creating counterplay against White's center and seeking piece activity rather than immediate pawn breaks. White typically continues with Be3 and f3, building a strong center.",
+    "difficulty": "Advanced",
+    "variations": [
+      {
+        "name": "Maróczy Bind",
+        "eco": "B36",
+        "moves": "5. c4",
+        "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6 5. c4",
+        "fen": "r1bqkbnr/pp1ppp1p/2n3p1/8/2PNP3/8/PP3PPP/RNBQKB1R b KQkq - 0 5",
+        "description": "White creates a bind on the dark squares with pawns on c4 and e4",
+        "difficulty": "Advanced",
+        "frequency": "60%",
+        "popularity": "High"
+      },
+      {
+        "name": "Yugoslav Attack Setup",
+        "eco": "B35",
+        "moves": "5. Nc3 Bg7 6. Be3 Nf6 7. f3",
+        "pgn": "1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6 5. Nc3 Bg7 6. Be3 Nf6 7. f3",
+        "fen": "r1bqk2r/pp1pppbp/2n2np1/8/3NP3/2N1BP2/PPP3PP/R2QKB1R b KQkq - 0 7",
+        "description": "Sharp attacking setup with opposite-side castling",
+        "difficulty": "Advanced",
+        "frequency": "25%",
+        "popularity": "Medium"
+      }
+    ]
+  },
   {
     "eco": "C00",
     "name": "French Defense",
     "pgn": "1. e4 e6",
-    "fen": "rnbqkbnr/p1pp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "description": "A solid but somewhat passive defense that leads to closed, strategic positions. Black builds a solid pawn chain but often struggles with the light-squared bishop.",
+    "strategy": "Black aims to build a solid pawn structure with ...d5, challenge White's center, and create counterplay on the queenside or kingside. The typical plan involves ...d5, developing the dark-squared bishop, and finding active squares for the pieces. White usually advances in the center or on the kingside.",
+    "difficulty": "Intermediate"
   },
   {
     "eco": "C02",
     "name": "French, Advance Variation",
     "pgn": "1. e4 e6 2. d4 d5 3. e5",
     "fen": "rnbqkbnr/p1pp1ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3"
+  },
+   {
+    "eco": "C11",
+    "name": "French Defense, Steinitz Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. e5",
+    "fen": "rnbqkb1r/ppp2ppp/4pn2/3pP3/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq - 1 4",
+    "description": "The most principled continuation against the French, where White advances in the center and tries to prove the space advantage. Creates sharp, tactical positions with clear strategic themes.",
+    "strategy": "White gains space and restricts Black's pieces while preparing kingside development. The advanced pawn on e5 gives White attacking chances but can become a target. Black seeks counterplay with ...c5, ...Nc6, and piece activity on the queenside.",
+    "difficulty": "Intermediate",
+    "variations": [
+      {
+        "name": "Winawer Variation",
+        "eco": "C15",
+        "moves": "4...Bb4",
+        "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. e5 Bb4",
+        "fen": "rnbqk2r/ppp2ppp/4pn2/3pP3/1b1P4/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 5",
+        "description": "Sharp tactical line with immediate pressure on White's center",
+        "difficulty": "Advanced",
+        "frequency": "35%",
+        "popularity": "High"
+      },
+      {
+        "name": "Classical Variation",
+        "eco": "C14",
+        "moves": "4...Be7",
+        "pgn": "1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. e5 Be7",
+        "fen": "rnbqk2r/pppbpppp/4pn2/3pP3/3P4/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 5",
+        "description": "Solid development preparing to challenge White's center",
+        "difficulty": "Intermediate",
+        "frequency": "45%",
+        "popularity": "Very High"
+      }
+    ]
   },
   {
     "eco": "C20",
@@ -132,7 +339,10 @@
     "eco": "C42",
     "name": "Petrov Defense",
     "pgn": "1. e4 e5 2. Nf3 Nf6",
-    "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+    "description": "A solid, symmetrical defense where Black immediately attacks White's e4 pawn. Known for leading to drawish positions, making it a favorite defensive weapon for players seeking to equalize.",
+    "strategy": "Black mirrors White's development and maintains symmetry in the center. The typical plan involves ...d6, ...Be7, ...0-0, and solid piece development. White often tries to break the symmetry with d4 or by developing more aggressively to maintain the initiative.",
+    "difficulty": "Intermediate"
   },
   {
     "eco": "C44",
@@ -142,6 +352,39 @@
     "description": "An aggressive opening where White immediately opens the center, leading to tactical complications and quick development. Garry Kasparov used this opening frequently in his world championship matches.",
     "strategy": "White opens the center immediately to gain space and rapid piece development. After ...exd4 Nxd4, White gets active piece play and central control. Black must be careful not to fall behind in development and should seek to complete development quickly while looking for tactical opportunities.",
     "difficulty": "Intermediate"
+  },
+  {
+    "eco": "C45",
+    "name": "Scotch Game, Classical Variation",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5",
+    "fen": "r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 2 5",
+    "description": "The most principled response to the Scotch Game, where Black develops the bishop actively and puts immediate pressure on the knight. This leads to sharp tactical play with chances for both sides.",
+    "strategy": "Black develops pieces quickly and creates immediate threats against White's centralized knight. The plan involves rapid development with ...Nf6, ...d6, and ...0-0 while maintaining central pressure. White must handle the tactical complications carefully while trying to consolidate the extra space.",
+    "difficulty": "Intermediate",
+    "variations": [
+      {
+        "name": "Schmidt Variation",
+        "eco": "C45",
+        "moves": "5. Be3 Qf6",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. Be3 Qf6",
+        "fen": "r1b1k1nr/pppp1ppp/2n2q2/2b5/3NP3/4B3/PPP2PPP/RN1QKB1R w KQkq - 3 6",
+        "description": "Aggressive queen development creating immediate threats",
+        "difficulty": "Advanced",
+        "frequency": "30%",
+        "popularity": "Medium"
+      },
+      {
+        "name": "Steinitz Variation",
+        "eco": "C45",
+        "moves": "5. Nb3 Bb6",
+        "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. Nb3 Bb6",
+        "fen": "r1bqk1nr/pppp1ppp/1bn5/8/4P3/1N6/PPP2PPP/RNBQKB1R w KQkq - 3 6",
+        "description": "Solid retreat maintaining the bishop pair",
+        "difficulty": "Intermediate",
+        "frequency": "50%",
+        "popularity": "High"
+      }
+    ]
   },
   {
     "eco": "C50",
@@ -159,10 +402,92 @@
     "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
   },
   {
-    "eco": "C60",
-    "name": "Ruy Lopez",
-    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
-    "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+  "eco": "C60",
+  "name": "Ruy Lopez",
+  "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
+  "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+  "description": "One of the oldest and most classical chess openings, named after 16th-century Spanish priest Ruy López. The Spanish Opening puts immediate pressure on Black's center while developing pieces harmoniously.",
+  "strategy": "White aims to control the center and develop pieces quickly while maintaining pressure on Black's e5 pawn. The bishop on b5 pins the knight and threatens to disrupt Black's pawn structure. White typically follows with castling and d3, building a solid foundation for a kingside attack.",
+  "difficulty": "Intermediate",
+  "variations": [
+    {
+      "name": "Berlin Defense",
+      "eco": "C65",
+      "moves": "3...Nf6",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+      "description": "Solid but somewhat passive defense, very popular at the highest level due to its drawish nature.",
+      "difficulty": "Advanced",
+      "frequency": "35%",
+      "popularity": "High"
+    },
+    {
+      "name": "Morphy Defense",
+      "eco": "C70",
+      "moves": "3...a6",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6",
+      "fen": "r1bqkb1r/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+      "description": "The most classical response, leading to rich middlegame positions with chances for both sides.",
+      "difficulty": "Intermediate",
+      "frequency": "45%",
+      "popularity": "Very High"
+    },
+    {
+      "name": "Steinitz Defense",
+      "eco": "C62",
+      "moves": "3...d6",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 d6",
+      "fen": "r1bqkb1r/ppp2ppp/2np4/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+      "description": "Solid but passive setup, defending the e5 pawn directly.",
+      "difficulty": "Beginner",
+      "frequency": "12%",
+      "popularity": "Medium"
+    },
+    {
+      "name": "Schliemann Defense",
+      "eco": "C63",
+      "moves": "3...f5",
+      "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5 f5",
+      "fen": "r1bqkb1r/pppp2pp/2n5/1B2pp2/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+      "description": "Aggressive but risky counterattack, seeking immediate kingside play.",
+      "difficulty": "Advanced",
+      "frequency": "8%",
+      "popularity": "Low"
+    }
+  ]
+},
+ {
+    "eco": "D85",
+    "name": "Grünfeld Defense, Exchange Variation",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3",
+    "fen": "rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR b KQkq - 0 6",
+    "description": "A sharp counterattacking defense where Black sacrifices the center to create piece activity and pressure against White's pawn center. The Exchange Variation leads to complex strategic battles.",
+    "strategy": "Black allows White to build a strong pawn center, then attacks it with pieces like ...Bg7, ...c5, and ...Qa5. The strategy involves dynamic piece play and central pressure rather than static pawn structures. White aims to maintain the center and convert the space advantage into a lasting initiative.",
+    "difficulty": "Advanced",
+    "variations": [
+      {
+        "name": "Modern Exchange",
+        "eco": "D85",
+        "moves": "6...Bg7 7. Nf3 c5",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 Bg7 7. Nf3 c5",
+        "fen": "rnbqk2r/pp2ppbp/6p1/2p5/3PP3/2P2N2/P4PPP/R1BQKB1R w KQkq - 0 8",
+        "description": "Classical setup with immediate central pressure",
+        "difficulty": "Advanced",
+        "frequency": "70%",
+        "popularity": "Very High"
+      },
+      {
+        "name": "Seville Variation",
+        "eco": "D86",
+        "moves": "6...Bg7 7. Nf3 c5 8. Rb1",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5 5. e4 Nxc3 6. bxc3 Bg7 7. Nf3 c5 8. Rb1",
+        "fen": "rnbqk2r/pp2ppbp/6p1/2p5/3PP3/2P2N2/P4PPP/1RBQKB1R b Kkq - 1 8",
+        "description": "Aggressive rook development preparing queenside pressure",
+        "difficulty": "Advanced",
+        "frequency": "20%",
+        "popularity": "Medium"
+      }
+    ]
   },
   {
     "eco": "D00",
@@ -172,15 +497,21 @@
   },
   {
     "eco": "D02",
-    "name": "Queen's Pawn Game, London System",
+    "name": "London System",
     "pgn": "1. d4 d5 2. Nf3 Nf6 3. Bf4",
-    "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 3 3"
+    "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 3 3",
+    "description": "A systematic opening setup where White develops pieces to natural squares regardless of Black's setup. Popular among players who prefer strategic understanding over memorizing complex theory.",
+    "strategy": "White develops with a consistent plan: Bf4, e3, Bd3, h3, Nbd2, and typically castles kingside. The strategy focuses on solid development and gradual improvement of piece positions. Black has many possible setups but should be aware of typical White plans involving e4 advances or kingside attacks.",
+    "difficulty": "Beginner"
   },
   {
     "eco": "D06",
     "name": "Queen's Gambit",
     "pgn": "1. d4 d5 2. c4",
-    "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+    "description": "A classical opening that offers a pawn to gain central control and rapid development. Despite the name, it's not a true gambit since Black cannot safely keep the pawn.",
+    "strategy": "White aims to control the center with d4 and c4, develop pieces harmoniously, and create pressure on Black's position. The gambit pawn can often be regained easily, and White gets excellent piece activity in return. Black can accept or decline the gambit, each leading to different pawn structures.",
+    "difficulty": "Intermediate"
   },
   {
     "eco": "D20",
@@ -189,10 +520,13 @@
     "fen": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
   },
   {
-    "eco": "D30",
+     "eco": "D30",
     "name": "Queen's Gambit Declined",
     "pgn": "1. d4 d5 2. c4 e6",
-    "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+    "description": "Black's most solid response to the Queen's Gambit, maintaining the central pawn and building a secure position. Leads to rich strategic middlegames with clear plans for both sides.",
+    "strategy": "Black maintains the pawn on d5 and builds a solid center, typically developing with ...Nf6, ...Be7, and ...0-0. The plan involves gradual piece development and finding active squares for the pieces. White usually continues with Nc3, Nf3, and looks to maintain central pressure.",
+    "difficulty": "Intermediate"
   },
   {
     "eco": "D35",
@@ -216,18 +550,90 @@
     "eco": "E12",
     "name": "Queen's Indian Defense",
     "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6",
-    "fen": "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4"
+    "fen": "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4",
+    "description": "A solid hypermodern defense where Black fianchettoes the queen's bishop to control key central squares. Less sharp than the King's Indian but very reliable.",
+    "strategy": "Black develops the bishop to b7 to control the long diagonal and central squares, particularly e4. The strategy involves solid development with ...Be7, ...0-0, and gradual piece activity. White typically maintains central control and seeks to prove a space advantage.",
+    "difficulty": "Intermediate"
+  },
+  {
+    "eco": "E20",
+    "name": "Nimzo-Indian Defense",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
+    "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+    "description": "One of the most solid and respected defenses in chess, developed by Aron Nimzowitsch. Black immediately pins the knight and puts pressure on White's central structure while maintaining excellent piece coordination.",
+    "strategy": "Black aims to control the center through pieces rather than pawns, with the bishop on b4 creating immediate tactical and positional threats. The plan involves maintaining the pin, developing harmoniously, and seeking counterplay in the center. White typically tries to prove the bishop pair advantage.",
+    "difficulty": "Intermediate",
+    "variations": [
+      {
+        "name": "Rubinstein Variation",
+        "eco": "E20",
+        "moves": "4. e3",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3",
+        "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N1P3/PP3PPP/R1BQKBNR b KQkq - 0 4",
+        "description": "Solid positional approach avoiding doubled pawns",
+        "difficulty": "Intermediate",
+        "frequency": "35%",
+        "popularity": "High"
+      },
+      {
+        "name": "Samisch Variation",
+        "eco": "E26",
+        "moves": "4. a3 Bxc3+ 5. bxc3",
+        "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Bxc3+ 5. bxc3",
+        "fen": "rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1P5/5PPP/R1BQKBNR b KQkq - 0 5",
+        "description": "Sharp line accepting doubled pawns for bishop pair",
+        "difficulty": "Advanced",
+        "frequency": "25%",
+        "popularity": "Medium"
+      }
+    ]
   },
   {
     "eco": "E60",
     "name": "King's Indian Defense",
     "pgn": "1. d4 Nf6 2. c4 g6",
-    "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+    "description": "A hypermodern defense where Black allows White to build a strong pawn center, planning to attack it later with pieces and pawn breaks. A favorite of attacking players like Bobby Fischer and Garry Kasparov.",
+    "strategy": "Black develops the bishop to g7, castles kingside, and prepares central breaks like ...e5 or ...c5 to challenge White's center. The strategy involves allowing White space initially while building up for a dynamic counterattack. White typically maintains the center and seeks to prove the space advantage.",
+    "difficulty": "Advanced"
   },
   {
     "eco": "E61",
     "name": "King's Indian, 3.Nc3",
     "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3",
     "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3"
+  },
+   {
+    "eco": "E92",
+    "name": "King's Indian Defense, Petrosian System",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 0-0 6. Nf3 e5 7. d5",
+    "fen": "rnbq1rk1/ppp2pbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQK2R b KQ - 0 7",
+    "description": "A solid positional approach against the King's Indian where White closes the center and seeks to prove a space advantage. Named after former world champion Tigran Petrosian.",
+    "strategy": "White locks the center with d5 and plays for a slow positional squeeze, often expanding on the queenside with b4-b5. Black must find counterplay on the kingside with moves like ...f5, ...Nh5, and potential pawn storms. The position often features opposite-side attacks.",
+    "difficulty": "Advanced",
+    "variations": [
+      {
+        "name": "Classical Main Line",
+        "eco": "E94",
+        "moves": "7...a5",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 0-0 6. Nf3 e5 7. d5 a5",
+        "fen": "rnbq1rk1/1pp2pbp/3p1np1/p2Pp3/2P1P3/2N2N2/PP2BPPP/R1BQK2R w KQ - 0 8",
+        "description": "Prevents White's queenside expansion with b4-b5",
+        "difficulty": "Advanced",
+        "frequency": "55%",
+        "popularity": "Very High"
+      },
+      {
+        "name": "Bayonet Attack",
+        "eco": "E97",
+        "moves": "7...Nh5 8. g3 f5 9. h4",
+        "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 0-0 6. Nf3 e5 7. d5 Nh5 8. g3 f5 9. h4",
+        "fen": "rnbq1rk1/ppp3bp/3p2p1/3Ppp1n/2P1P2P/2N3P1/PP2BPP1/R1BQK2R b KQ - 0 9",
+        "description": "Ultra-sharp line with opposite-side attacks",
+        "difficulty": "Advanced",
+        "frequency": "25%",
+        "popularity": "Medium"
+      }
+    ]
   }
 ]

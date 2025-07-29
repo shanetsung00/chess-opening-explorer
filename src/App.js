@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import './App.css';
 
 // ChessboardJS Integration Component
-const ChessboardJS = ({ fen, size = 280, id }) => {
+const ChessboardJS = ({ fen, size = 280, id, flipped = false }) => {
   const boardRef = useRef(null);
   const boardInstanceRef = useRef(null);
 
@@ -19,6 +19,7 @@ const ChessboardJS = ({ fen, size = 280, id }) => {
         position: fen || 'start',
         draggable: false,
         showNotation: false,
+        orientation: flipped ? 'black' : 'white',
         pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
       });
 
@@ -33,7 +34,7 @@ const ChessboardJS = ({ fen, size = 280, id }) => {
         boardInstanceRef.current = null;
       }
     };
-  }, [fen]);
+  }, [fen, flipped]);
 
   // Update position when FEN changes
   useEffect(() => {
@@ -41,6 +42,13 @@ const ChessboardJS = ({ fen, size = 280, id }) => {
       boardInstanceRef.current.position(fen);
     }
   }, [fen]);
+
+  // Update orientation when flipped changes
+  useEffect(() => {
+    if (boardInstanceRef.current) {
+      boardInstanceRef.current.orientation(flipped ? 'black' : 'white');
+    }
+  }, [flipped]);
 
   return (
     <div 
@@ -75,6 +83,272 @@ const ArrowLeftIcon = () => (
     <path d="M19 12H5"/>
   </svg>
 );
+
+const FlipIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <polyline points="17 1 21 5 17 9"></polyline>
+    <path d="m21 5H9a4 4 0 0 0-4 4v6"></path>
+    <polyline points="7 23 3 19 7 15"></polyline>
+    <path d="M3 19h12a4 4 0 0 0 4-4V9"></path>
+  </svg>
+);
+
+// Variation Card Component
+const VariationCard = ({ variation, onSelect }) => {
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty?.toLowerCase()) {
+      case 'beginner': return '#22c55e';
+      case 'intermediate': return '#f97316';
+      case 'advanced': return '#ef4444';
+      default: return '#71717a';
+    }
+  };
+
+  const getPopularityColor = (popularity) => {
+    switch (popularity?.toLowerCase()) {
+      case 'very high': return '#22c55e';
+      case 'high': return '#16a34a';
+      case 'medium': return '#f97316';
+      case 'low': return '#ef4444';
+      default: return '#71717a';
+    }
+  };
+
+  return (
+    <div className="variation-card" onClick={() => onSelect && onSelect(variation)}>
+      <div className="variation-header">
+        <div className="variation-info">
+          <h4 className="variation-name">{variation.name}</h4>
+          <p className="variation-moves">{variation.moves}</p>
+          {variation.frequency && (
+            <div className="variation-frequency">
+              <span className="frequency-label">Frequency:</span>
+              <div className="frequency-bar">
+                <div 
+                  className="frequency-fill" 
+                  style={{ width: variation.frequency }}
+                ></div>
+              </div>
+              <span className="frequency-text">{variation.frequency}</span>
+            </div>
+          )}
+        </div>
+        <div className="variation-badges">
+          {variation.eco && (
+            <span className="variation-eco">{variation.eco}</span>
+          )}
+          {variation.difficulty && (
+            <span 
+              className="difficulty-badge small"
+              style={{ 
+                backgroundColor: `${getDifficultyColor(variation.difficulty)}20`,
+                color: getDifficultyColor(variation.difficulty),
+                border: `1px solid ${getDifficultyColor(variation.difficulty)}40`
+              }}
+            >
+              {variation.difficulty}
+            </span>
+          )}
+          {variation.popularity && (
+            <span 
+              className="popularity-badge"
+              style={{ 
+                backgroundColor: `${getPopularityColor(variation.popularity)}20`,
+                color: getPopularityColor(variation.popularity),
+                border: `1px solid ${getPopularityColor(variation.popularity)}40`
+              }}
+            >
+              {variation.popularity}
+            </span>
+          )}
+        </div>
+      </div>
+      
+      <div className="variation-board">
+        <ChessboardJS 
+          fen={variation.fen} 
+          size={200} 
+          id={`variation-${variation.eco || variation.name.replace(/\s+/g, '-').toLowerCase()}`}
+        />
+      </div>
+      
+      {variation.description && (
+        <p className="variation-description">{variation.description}</p>
+      )}
+    </div>
+  );
+};
+
+// Enhanced Detail View Component with Tabs
+const DetailView = ({ opening, onBack, onToggleFavorite, isFavorite, onOpeningSelect }) => {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [boardFlipped, setBoardFlipped] = useState(false);
+
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty?.toLowerCase()) {
+      case 'beginner': return '#22c55e';
+      case 'intermediate': return '#f97316';
+      case 'advanced': return '#ef4444';
+      default: return '#71717a';
+    }
+  };
+
+  const handleVariationSelect = (variation) => {
+    // Create a mini opening object from the variation
+    const variationOpening = {
+      eco: variation.eco || opening.eco + '-var',
+      name: `${opening.name}: ${variation.name}`,
+      pgn: variation.pgn,
+      fen: variation.fen,
+      description: variation.description,
+      difficulty: variation.difficulty,
+      parentOpening: opening
+    };
+    
+    if (onOpeningSelect) {
+      onOpeningSelect(variationOpening);
+    }
+  };
+
+  const tabs = [
+    { key: 'overview', label: 'Overview', icon: '📖' },
+    { key: 'variations', label: 'Variations', icon: '🌟', count: opening.variations?.length }
+  ];
+
+  return (
+    <div className="detail-view">
+      <header className="detail-header">
+        <button onClick={onBack} className="back-btn">
+          <ArrowLeftIcon />
+          {opening.parentOpening ? `Back to ${opening.parentOpening.name}` : 'Back to All Openings'}
+        </button>
+      </header>
+      
+      <main className="detail-content">
+        <div className="detail-info">
+          <div className="detail-title-section">
+            <h1 className="detail-title">{opening.name}</h1>
+            <div className="detail-meta">
+              <span className="detail-eco">{opening.eco}</span>
+              {opening.difficulty && (
+                <span 
+                  className="difficulty-badge"
+                  style={{ 
+                    backgroundColor: `${getDifficultyColor(opening.difficulty)}20`,
+                    color: getDifficultyColor(opening.difficulty),
+                    border: `1px solid ${getDifficultyColor(opening.difficulty)}40`
+                  }}
+                >
+                  {opening.difficulty}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="detail-tabs">
+            {tabs.map(tab => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`tab-btn ${activeTab === tab.key ? 'active' : ''}`}
+                disabled={tab.key === 'variations' && !opening.variations?.length}
+              >
+                <span className="tab-icon">{tab.icon}</span>
+                <span className="tab-label">{tab.label}</span>
+                {tab.count && <span className="tab-count">({tab.count})</span>}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="tab-content">
+            {activeTab === 'overview' && (
+              <div className="overview-content">
+                <div className="detail-moves-section">
+                  <h3 className="section-heading">Opening Moves</h3>
+                  <p className="detail-moves">{opening.pgn}</p>
+                </div>
+
+                {opening.description && (
+                  <div className="detail-description-section">
+                    <h3 className="section-heading">Overview</h3>
+                    <p className="detail-description">{opening.description}</p>
+                  </div>
+                )}
+
+                {opening.strategy && (
+                  <div className="detail-strategy-section">
+                    <h3 className="section-heading">Strategic Ideas</h3>
+                    <p className="detail-strategy">{opening.strategy}</p>
+                  </div>
+                )}
+
+                {!opening.description && !opening.strategy && !opening.difficulty && (
+                  <div className="detail-coming-soon">
+                    <h3 className="section-heading">Detailed Analysis</h3>
+                    <p className="coming-soon-text">
+                      📚 Detailed strategic information coming soon! This opening is part of our expansion plan to include comprehensive analysis, typical plans, and key variations.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {activeTab === 'variations' && opening.variations && (
+              <div className="variations-content">
+                <div className="variations-header">
+                  <h3 className="section-heading">Main Variations</h3>
+                  <p className="variations-subtitle">
+                    Explore the most common and important continuations from this position
+                  </p>
+                </div>
+                
+                <div className="variations-grid">
+                  {opening.variations.map((variation, index) => (
+                    <VariationCard
+                      key={variation.eco || index}
+                      variation={variation}
+                      onSelect={handleVariationSelect}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        <div className="detail-board-section">
+          <ChessboardJS 
+            fen={opening.fen} 
+            size={300} 
+            id={`detail-board-${opening.eco}`}
+            flipped={boardFlipped}
+          />
+          
+          <div className="board-action-buttons">
+            <button 
+              onClick={() => setBoardFlipped(!boardFlipped)}
+              className="detail-action-btn"
+              title="Flip Board"
+            >
+              <FlipIcon />
+              Flip Board
+            </button>
+            
+            <button 
+              onClick={() => onToggleFavorite(opening.eco)} 
+              className={`detail-action-btn ${isFavorite ? 'active' : ''}`}
+            >
+              <StarIcon isFavorite={isFavorite} />
+              {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
 
 // Opening Card Component
 const OpeningCard = ({ opening, onSelect, onToggleFavorite, isFavorite }) => (
@@ -139,96 +413,6 @@ const FilterTabs = ({ activeFilter, onFilterChange, counts }) => {
   );
 };
 
-// Enhanced Detail View Component
-const DetailView = ({ opening, onBack, onToggleFavorite, isFavorite }) => {
-  // Difficulty color mapping
-  const getDifficultyColor = (difficulty) => {
-    switch (difficulty?.toLowerCase()) {
-      case 'beginner': return '#22c55e';
-      case 'intermediate': return '#f97316';
-      case 'advanced': return '#ef4444';
-      default: return '#71717a';
-    }
-  };
-
-  return (
-    <div className="detail-view">
-      <header className="detail-header">
-        <button onClick={onBack} className="back-btn">
-          <ArrowLeftIcon />
-          Back to All Openings
-        </button>
-      </header>
-      
-      <main className="detail-content">
-        <div className="detail-info">
-          <div className="detail-title-section">
-            <h1 className="detail-title">{opening.name}</h1>
-            <div className="detail-meta">
-              <span className="detail-eco">{opening.eco}</span>
-              {opening.difficulty && (
-                <span 
-                  className="difficulty-badge"
-                  style={{ 
-                    backgroundColor: `${getDifficultyColor(opening.difficulty)}20`,
-                    color: getDifficultyColor(opening.difficulty),
-                    border: `1px solid ${getDifficultyColor(opening.difficulty)}40`
-                  }}
-                >
-                  {opening.difficulty}
-                </span>
-              )}
-            </div>
-          </div>
-
-          <div className="detail-moves-section">
-            <h3 className="section-heading">Opening Moves</h3>
-            <p className="detail-moves">{opening.pgn}</p>
-          </div>
-
-          {opening.description && (
-            <div className="detail-description-section">
-              <h3 className="section-heading">Overview</h3>
-              <p className="detail-description">{opening.description}</p>
-            </div>
-          )}
-
-          {opening.strategy && (
-            <div className="detail-strategy-section">
-              <h3 className="section-heading">Strategic Ideas</h3>
-              <p className="detail-strategy">{opening.strategy}</p>
-            </div>
-          )}
-
-          {!opening.description && !opening.strategy && !opening.difficulty && (
-            <div className="detail-coming-soon">
-              <h3 className="section-heading">Detailed Analysis</h3>
-              <p className="coming-soon-text">
-                📚 Detailed strategic information coming soon! This opening is part of our expansion plan to include comprehensive analysis, typical plans, and key variations.
-              </p>
-            </div>
-          )}
-        </div>
-        
-        <div className="detail-board-section">
-          <ChessboardJS 
-            fen={opening.fen} 
-            size={260} 
-            id={`detail-board-${opening.eco}`}
-          />
-          <button 
-            onClick={() => onToggleFavorite(opening.eco)} 
-            className={`detail-favorite-btn ${isFavorite ? 'active' : ''}`}
-          >
-            <StarIcon isFavorite={isFavorite} />
-            {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-          </button>
-        </div>
-      </main>
-    </div>
-  );
-};
-
 // Main App Component
 const App = () => {
   const [openings, setOpenings] = useState([]);
@@ -240,6 +424,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [chessboardLoaded, setChessboardLoaded] = useState(false);
+  const [navigationHistory, setNavigationHistory] = useState([]);
 
   // Load ChessboardJS library
   useEffect(() => {
@@ -265,35 +450,22 @@ const App = () => {
       return script;
     };
 
-    // 1. Load jQuery first
-    const jqueryScript = loadScript(
+    // Load jQuery first, then chessboard.js
+    loadScript(
       'https://code.jquery.com/jquery-3.7.1.min.js',
-      // 2. Once jQuery loads, load chessboard.js
       () => {
         loadScript(
           'https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js',
           () => {
-            setChessboardLoaded(true); // Set loaded to true only after both scripts are ready
+            setChessboardLoaded(true);
           }
         );
       }
     );
 
-    // Load JS
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js';
-    script.onload = () => {
-      setChessboardLoaded(true);
-    };
-    script.onerror = () => {
-      setError('Failed to load ChessboardJS');
-    };
-    document.head.appendChild(script);
-
     return () => {
       // Cleanup on unmount
       if (link.parentNode) link.parentNode.removeChild(link);
-      if (script.parentNode) script.parentNode.removeChild(script);
     };
   }, []);
 
@@ -371,6 +543,27 @@ const App = () => {
     );
   };
 
+  const handleOpeningSelect = (opening) => {
+    if (selectedOpening) {
+      // Add current opening to history when navigating to a variation
+      setNavigationHistory(prev => [...prev, selectedOpening]);
+    }
+    setSelectedOpening(opening);
+  };
+
+  const handleBack = () => {
+    if (navigationHistory.length > 0) {
+      // Go back to previous opening in history
+      const previousOpening = navigationHistory[navigationHistory.length - 1];
+      setNavigationHistory(prev => prev.slice(0, -1));
+      setSelectedOpening(previousOpening);
+    } else {
+      // Go back to main view
+      setSelectedOpening(null);
+      setNavigationHistory([]);
+    }
+  };
+
   if (loading || !chessboardLoaded) {
     return (
       <div className="app">
@@ -398,9 +591,10 @@ const App = () => {
       <div className="app">
         <DetailView
           opening={selectedOpening}
-          onBack={() => setSelectedOpening(null)}
+          onBack={handleBack}
           onToggleFavorite={toggleFavorite}
           isFavorite={favorites.includes(selectedOpening.eco)}
+          onOpeningSelect={handleOpeningSelect}
         />
       </div>
     );
@@ -450,7 +644,7 @@ const App = () => {
                 <OpeningCard
                   key={opening.eco}
                   opening={opening}
-                  onSelect={setSelectedOpening}
+                  onSelect={handleOpeningSelect}
                   onToggleFavorite={toggleFavorite}
                   isFavorite={favorites.includes(opening.eco)}
                 />
