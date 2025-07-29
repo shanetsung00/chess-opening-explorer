@@ -117,7 +117,10 @@
     "eco": "C30",
     "name": "King's Gambit",
     "pgn": "1. e4 e5 2. f4",
-    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2"
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
+    "description": "A romantic and aggressive opening from chess's golden age, where White sacrifices a pawn for rapid development and attacking chances. Once considered the best opening, now known to be dubious but still dangerous in practice.",
+    "strategy": "White sacrifices the f4 pawn to open lines and gain rapid development, aiming for a quick kingside attack. The plan involves Nf3, Bc4, 0-0, and creating threats against Black's king. Black can accept or decline the gambit, with acceptance leading to sharp tactical play.",
+    "difficulty": "Advanced"
   },
   {
     "eco": "C41",
@@ -135,13 +138,19 @@
     "eco": "C44",
     "name": "Scotch Game",
     "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
-    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3"
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+    "description": "An aggressive opening where White immediately opens the center, leading to tactical complications and quick development. Garry Kasparov used this opening frequently in his world championship matches.",
+    "strategy": "White opens the center immediately to gain space and rapid piece development. After ...exd4 Nxd4, White gets active piece play and central control. Black must be careful not to fall behind in development and should seek to complete development quickly while looking for tactical opportunities.",
+    "difficulty": "Intermediate"
   },
   {
     "eco": "C50",
     "name": "Italian Game",
     "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4",
-    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 4 3"
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 4 3",
+    "description": "One of the oldest chess openings, dating back to the 16th century. White develops the bishop actively, targeting the f7 square and preparing for quick kingside development.",
+    "strategy": "White aims for rapid development and quick castling while putting pressure on Black's kingside, particularly the f7 pawn. The plan involves d3, 0-0, and potential tactical shots. Black typically responds with ...Be7 or ...f5, seeking to neutralize White's initiative and develop pieces safely.",
+    "difficulty": "Beginner"
   },
   {
     "eco": "C57",
