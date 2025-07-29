@@ -385,6 +385,10 @@ body {
   backdrop-filter: blur(10px);
 }
 
+.detail-title-section {
+  margin-bottom: 25px;
+}
+
 .detail-title {
   font-size: 2rem;
   font-weight: 600;
@@ -393,19 +397,11 @@ body {
   color: #f5f5f5;
 }
 
-.detail-moves {
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #d4d4d8;
-  font-weight: 400;
-}
-
 .detail-meta {
   display: flex;
   gap: 15px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .detail-eco {
@@ -418,10 +414,68 @@ body {
   letter-spacing: 0.5px;
 }
 
+.difficulty-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #22c55e;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-moves-section, 
+.detail-description-section, 
+.detail-strategy-section,
+.detail-coming-soon {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(115, 115, 115, 0.15);
+}
+
+.detail-coming-soon:last-child,
+.detail-strategy-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-moves {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 1.2rem;
+  color: #d4d4d8;
+  font-weight: 500;
+  background: rgba(115, 115, 115, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid #22c55e;
+}
+
 .detail-description {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #d4d4d8;
+}
+
+.detail-strategy {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #d4d4d8;
+}
+
+.coming-soon-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #a3a3a3;
+  font-style: italic;
 }
 
 .detail-board-section {

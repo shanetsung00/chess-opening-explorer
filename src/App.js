@@ -139,45 +139,95 @@ const FilterTabs = ({ activeFilter, onFilterChange, counts }) => {
   );
 };
 
-// Detail View Component
-const DetailView = ({ opening, onBack, onToggleFavorite, isFavorite }) => (
-  <div className="detail-view">
-    <header className="detail-header">
-      <button onClick={onBack} className="back-btn">
-        <ArrowLeftIcon />
-        Back to All Openings
-      </button>
-    </header>
-    
-    <main className="detail-content">
-      <div className="detail-info">
-        <h1 className="detail-title">{opening.name}</h1>
-        <p className="detail-moves">{opening.pgn}</p>
-        <div className="detail-meta">
-          <span className="detail-eco">{opening.eco}</span>
-        </div>
-        {opening.description && (
-          <p className="detail-description">{opening.description}</p>
-        )}
-      </div>
-      
-      <div className="detail-board-section">
-        <ChessboardJS 
-          fen={opening.fen} 
-          size={400} 
-          id={`detail-board-${opening.eco}`}
-        />
-        <button 
-          onClick={() => onToggleFavorite(opening.eco)} 
-          className="detail-favorite-btn"
-        >
-          <StarIcon isFavorite={isFavorite} />
-          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+// Enhanced Detail View Component
+const DetailView = ({ opening, onBack, onToggleFavorite, isFavorite }) => {
+  // Difficulty color mapping
+  const getDifficultyColor = (difficulty) => {
+    switch (difficulty?.toLowerCase()) {
+      case 'beginner': return '#22c55e';
+      case 'intermediate': return '#f97316';
+      case 'advanced': return '#ef4444';
+      default: return '#71717a';
+    }
+  };
+
+  return (
+    <div className="detail-view">
+      <header className="detail-header">
+        <button onClick={onBack} className="back-btn">
+          <ArrowLeftIcon />
+          Back to All Openings
         </button>
-      </div>
-    </main>
-  </div>
-);
+      </header>
+      
+      <main className="detail-content">
+        <div className="detail-info">
+          <div className="detail-title-section">
+            <h1 className="detail-title">{opening.name}</h1>
+            <div className="detail-meta">
+              <span className="detail-eco">{opening.eco}</span>
+              {opening.difficulty && (
+                <span 
+                  className="difficulty-badge"
+                  style={{ 
+                    backgroundColor: `${getDifficultyColor(opening.difficulty)}20`,
+                    color: getDifficultyColor(opening.difficulty),
+                    border: `1px solid ${getDifficultyColor(opening.difficulty)}40`
+                  }}
+                >
+                  {opening.difficulty}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="detail-moves-section">
+            <h3 className="section-heading">Opening Moves</h3>
+            <p className="detail-moves">{opening.pgn}</p>
+          </div>
+
+          {opening.description && (
+            <div className="detail-description-section">
+              <h3 className="section-heading">Overview</h3>
+              <p className="detail-description">{opening.description}</p>
+            </div>
+          )}
+
+          {opening.strategy && (
+            <div className="detail-strategy-section">
+              <h3 className="section-heading">Strategic Ideas</h3>
+              <p className="detail-strategy">{opening.strategy}</p>
+            </div>
+          )}
+
+          {!opening.description && !opening.strategy && !opening.difficulty && (
+            <div className="detail-coming-soon">
+              <h3 className="section-heading">Detailed Analysis</h3>
+              <p className="coming-soon-text">
+                📚 Detailed strategic information coming soon! This opening is part of our expansion plan to include comprehensive analysis, typical plans, and key variations.
+              </p>
+            </div>
+          )}
+        </div>
+        
+        <div className="detail-board-section">
+          <ChessboardJS 
+            fen={opening.fen} 
+            size={260} 
+            id={`detail-board-${opening.eco}`}
+          />
+          <button 
+            onClick={() => onToggleFavorite(opening.eco)} 
+            className={`detail-favorite-btn ${isFavorite ? 'active' : ''}`}
+          >
+            <StarIcon isFavorite={isFavorite} />
+            {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+          </button>
+        </div>
+      </main>
+    </div>
+  );
+};
 
 // Main App Component
 const App = () => {
