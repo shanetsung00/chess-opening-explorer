@@ -1,0 +1,224 @@
+[
+  {
+    "eco": "A00",
+    "name": "Anderssen's Opening",
+    "pgn": "1. a3",
+    "fen": "rnbqkbnr/pppppppp/8/8/8/P7/1PPPPPPP/RNBQKBNR b KQkq - 0 1"
+  },
+  {
+    "eco": "A01",
+    "name": "Nimzowitsch-Larsen Attack",
+    "pgn": "1. b3",
+    "fen": "rnbqkbnr/pppppppp/8/8/8/1P6/P1PPPPPP/RNBQKBNR b KQkq - 0 1"
+  },
+  {
+    "eco": "A02",
+    "name": "Bird's Opening",
+    "pgn": "1. f4",
+    "fen": "rnbqkbnr/pppppppp/8/8/5P2/8/PPPPP1PP/RNBQKBNR b KQkq - 0 1"
+  },
+  {
+    "eco": "A10",
+    "name": "English Opening",
+    "pgn": "1. c4",
+    "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1"
+  },
+  {
+    "eco": "A20",
+    "name": "English, King's English Variation",
+    "pgn": "1. c4 e5",
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "A40",
+    "name": "Queen's Pawn Game",
+    "pgn": "1. d4",
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1"
+  },
+  {
+    "eco": "A45",
+    "name": "Trompowsky Attack",
+    "pgn": "1. d4 Nf6 2. Bg5",
+    "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 1 2"
+  },
+  {
+    "eco": "B00",
+    "name": "King's Pawn Opening",
+    "pgn": "1. e4",
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
+  },
+  {
+    "eco": "B01",
+    "name": "Scandinavian Defense",
+    "pgn": "1. e4 d5",
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "B06",
+    "name": "Modern Defense",
+    "pgn": "1. e4 g6",
+    "fen": "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "B10",
+    "name": "Caro-Kann Defense",
+    "pgn": "1. e4 c6",
+    "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "B12",
+    "name": "Caro-Kann Defense, Advance Variation",
+    "pgn": "1. e4 c6 2. d4 d5 3. e5",
+    "fen": "rnbqkbnr/pp2pppp/2p5/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3"
+  },
+  {
+    "eco": "B20",
+    "name": "Sicilian Defense",
+    "pgn": "1. e4 c5",
+    "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "B21",
+    "name": "Sicilian, Smith-Morra Gambit",
+    "pgn": "1. e4 c5 2. d4 cxd4 3. c3",
+    "fen": "rnbqkbnr/pp1ppppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3"
+  },
+  {
+    "eco": "B27",
+    "name": "Sicilian, Hyperaccelerated Dragon",
+    "pgn": "1. e4 c5 2. Nf3 g6",
+    "fen": "rnbqkbnr/pp1ppp1p/6p1/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+  },
+  {
+    "eco": "C00",
+    "name": "French Defense",
+    "pgn": "1. e4 e6",
+    "fen": "rnbqkbnr/p1pp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "C02",
+    "name": "French, Advance Variation",
+    "pgn": "1. e4 e6 2. d4 d5 3. e5",
+    "fen": "rnbqkbnr/p1pp1ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3"
+  },
+  {
+    "eco": "C20",
+    "name": "King's Pawn Game",
+    "pgn": "1. e4 e5",
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "C23",
+    "name": "Bishop's Opening",
+    "pgn": "1. e4 e5 2. Bc4",
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - 1 2"
+  },
+  {
+    "eco": "C30",
+    "name": "King's Gambit",
+    "pgn": "1. e4 e5 2. f4",
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2"
+  },
+  {
+    "eco": "C41",
+    "name": "Philidor Defense",
+    "pgn": "1. e4 e5 2. Nf3 d6",
+    "fen": "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"
+  },
+  {
+    "eco": "C42",
+    "name": "Petrov Defense",
+    "pgn": "1. e4 e5 2. Nf3 Nf6",
+    "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+  },
+  {
+    "eco": "C44",
+    "name": "Scotch Game",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3"
+  },
+  {
+    "eco": "C50",
+    "name": "Italian Game",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4",
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 4 3"
+  },
+  {
+    "eco": "C57",
+    "name": "Italian Game, Two Knights Defense",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6",
+    "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+  },
+  {
+    "eco": "C60",
+    "name": "Ruy Lopez",
+    "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
+    "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+  },
+  {
+    "eco": "D00",
+    "name": "Queen's Pawn Game",
+    "pgn": "1. d4 d5",
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"
+  },
+  {
+    "eco": "D02",
+    "name": "Queen's Pawn Game, London System",
+    "pgn": "1. d4 d5 2. Nf3 Nf6 3. Bf4",
+    "fen": "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 3 3"
+  },
+  {
+    "eco": "D06",
+    "name": "Queen's Gambit",
+    "pgn": "1. d4 d5 2. c4",
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"
+  },
+  {
+    "eco": "D20",
+    "name": "Queen's Gambit Accepted",
+    "pgn": "1. d4 d5 2. c4 dxc4",
+    "fen": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+  },
+  {
+    "eco": "D30",
+    "name": "Queen's Gambit Declined",
+    "pgn": "1. d4 d5 2. c4 e6",
+    "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+  },
+  {
+    "eco": "D35",
+    "name": "Queen's Gambit Declined, Exchange Variation",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. cxd5",
+    "fen": "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4"
+  },
+  {
+    "eco": "D43",
+    "name": "Semi-Slav Defense",
+    "pgn": "1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 c6",
+    "fen": "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5"
+  },
+  {
+    "eco": "E00",
+    "name": "Indian Game",
+    "pgn": "1. d4 Nf6",
+    "fen": "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2"
+  },
+  {
+    "eco": "E12",
+    "name": "Queen's Indian Defense",
+    "pgn": "1. d4 Nf6 2. c4 e6 3. Nf3 b6",
+    "fen": "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4"
+  },
+  {
+    "eco": "E60",
+    "name": "King's Indian Defense",
+    "pgn": "1. d4 Nf6 2. c4 g6",
+    "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+  },
+  {
+    "eco": "E61",
+    "name": "King's Indian, 3.Nc3",
+    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3",
+    "fen": "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3"
+  }
+]
