@@ -1128,10 +1128,14 @@ const App = () => {
 
   const handleOpeningSelect = (opening) => {
     setSelectedOpening(opening);
+    // Scroll to top when opening detail view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBack = () => {
     setSelectedOpening(null);
+    // Scroll to top when returning to main view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (loading || !chessboardLoaded) {
