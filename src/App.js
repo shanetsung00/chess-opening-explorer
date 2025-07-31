@@ -825,12 +825,6 @@ const FilterDropdown = ({ activeFilter, onFilterChange, counts }) => {
 
   const filters = [
     { key: 'all', label: 'All Openings', count: counts.all },
-    { key: 'main', label: 'Main Lines Only', count: counts.main },
-    { key: 'white-e4', label: 'White: 1.e4 Openings', count: counts.whiteE4 },
-    { key: 'white-d4', label: 'White: 1.d4 Openings', count: counts.whiteD4 },
-    { key: 'white-other', label: 'White: Other First Moves', count: counts.whiteOther },
-    { key: 'black-vs-e4', label: 'Black vs 1.e4', count: counts.blackVsE4 },
-    { key: 'black-vs-d4', label: 'Black vs 1.d4', count: counts.blackVsD4 },
     { key: 'A', label: 'ECO A - Flank & Irregular', count: counts.A },
     { key: 'B', label: 'ECO B - Semi-Open', count: counts.B },
     { key: 'C', label: 'ECO C - Open Games', count: counts.C },
