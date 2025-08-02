@@ -30,10 +30,6 @@ const FilterDropdown = ({ activeFilter, onFilterChange, counts, userRepertoires 
     return filter;
   };
 
-  const activeFilterData = filters.find(f => f.key === activeFilter) || 
-                           userRepertoires.find(r => r.id === activeFilter) || 
-                           filters[0];
-
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
