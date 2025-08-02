@@ -1,0 +1,124 @@
+/* styles/moveNavigation.css */
+
+.controls-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-dropdown {
+  min-width: 320px;
+  max-width: 500px;
+  flex: 1;
+}
+
+.favorites-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(38, 38, 38, 0.8);
+  border: 1px solid rgba(115, 115, 115, 0.3);
+  border-radius: 12px;
+  color: #d4d4d8;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 140px;
+}
+
+.favorites-btn:hover:not(:disabled) {
+  background: rgba(64, 64, 64, 0.8);
+  border-color: #fbbf24;
+  color: #fbbf24;
+  transform: translateY(-1px);
+}
+
+.favorites-btn.active {
+  background: rgba(251, 191, 36, 0.15);
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.favorites-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.move-navigation {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.move-status {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.move-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.move-btn {
+  padding: 8px 12px;
+  background: rgba(38, 38, 38, 0.8);
+  border: 1px solid rgba(115, 115, 115, 0.3);
+  border-radius: 6px;
+  color: #d4d4d8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  height: 40px;
+}
+
+.move-btn:hover:not(:disabled) {
+  background: rgba(64, 64, 64, 0.8);
+  border-color: #22c55e;
+  color: #22c55e;
+  transform: translateY(-1px);
+}
+
+.move-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .controls-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-dropdown {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .favorites-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .move-controls {
+    gap: 6px;
+  }
+  
+  .move-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 6px 10px;
+  }
+}
