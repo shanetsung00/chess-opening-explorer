@@ -1,5 +1,4 @@
-// components/DetailView.js - Final Corrected Version
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import './DetailView.css';
 import ChessboardJS from './ChessboardJS';
 import { 
@@ -22,6 +21,53 @@ const RepertoireIcon = () => (
   </svg>
 );
 
+// This is the single, correct component for the board and all its controls
+const BoardComponent = ({ 
+  size, 
+  currentPosition, 
+  boardFlipped, 
+  currentMoveText, 
+  isAtStart,
+  isAtEnd,
+  isFavorite,
+  user,
+  opening,
+  onGoToStart, 
+  onStepBack, 
+  onStepForward, 
+  onGoToEnd, 
+  onFlip, 
+  onToggleFavorite 
+}) => (
+  <>
+    <div className="board-container">
+      <ChessboardJS 
+        fen={currentPosition} 
+        size={size}
+        flipped={boardFlipped}
+        showNotation={true}
+        isVisible={true}
+      />
+    </div>
+    <div className="move-navigation">
+      <div className="move-status">{currentMoveText}</div>
+      <div className="move-controls">
+        <button className="move-btn" onClick={onGoToStart} disabled={isAtStart} title="Go to start"><SkipToStartIcon /></button>
+        <button className="move-btn" onClick={onStepBack} disabled={isAtStart} title="Previous move"><StepBackIcon /></button>
+        <button className="move-btn" onClick={onStepForward} disabled={isAtEnd} title="Next move"><StepForwardIcon /></button>
+        <button className="move-btn" onClick={onGoToEnd} disabled={isAtEnd} title="Go to end"><SkipToEndIcon /></button>
+      </div>
+    </div>
+    <div className="board-action-buttons">
+      <button className="detail-action-btn" onClick={onFlip}><FlipIcon /> Flip Board</button>
+      <button className={`detail-action-btn ${isFavorite ? 'active' : ''}`} onClick={() => onToggleFavorite(opening)} disabled={!user} title={!user ? 'Sign in to add to repertoires' : isFavorite ? 'In repertoire(s)' : 'Add to Repertoire'}>
+        <RepertoireIcon />
+        {!user ? 'Sign in to add' : isFavorite ? 'In Repertoire' : 'Add to Repertoire'}
+      </button>
+    </div>
+  </>
+);
+
 const DetailView = ({ 
   opening, 
   onBack, 
@@ -34,6 +80,21 @@ const DetailView = ({
   const [moves, setMoves] = useState([]);
   const [currentPosition, setCurrentPosition] = useState('');
   const [isCalculating, setIsCalculating] = useState(false);
+  
+  const mobileBoardContainerRef = useRef(null);
+  const [mobileBoardSize, setMobileBoardSize] = useState(300);
+
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      if (mobileBoardContainerRef.current) {
+        const newSize = mobileBoardContainerRef.current.offsetWidth - 2; 
+        setMobileBoardSize(newSize > 0 ? newSize : 300);
+      }
+    };
+    window.addEventListener('resize', updateSize);
+    updateSize(); 
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   useEffect(() => {
     const parsedMoves = parsePGN(opening.pgn);
@@ -61,17 +122,10 @@ const DetailView = ({
           setCurrentPosition(opening.fen);
         }
       }
-      
       setIsCalculating(false);
     };
-    
     calculatePosition();
   }, [currentMoveIndex, moves, opening.fen]);
-
-  const goToStart = () => setCurrentMoveIndex(-1);
-  const stepBack = () => currentMoveIndex > -1 && setCurrentMoveIndex(currentMoveIndex - 1);
-  const stepForward = () => currentMoveIndex < moves.length - 1 && setCurrentMoveIndex(currentMoveIndex + 1);
-  const goToEnd = () => setCurrentMoveIndex(moves.length - 1);
 
   const getCurrentMoveText = () => {
     if (isCalculating) return "Calculating position...";
@@ -85,48 +139,45 @@ const DetailView = ({
     return `${moveNumber}.${isWhiteMove ? '' : '..'} ${move}`;
   };
 
+  const boardProps = {
+    currentPosition: currentPosition,
+    boardFlipped: boardFlipped,
+    currentMoveText: getCurrentMoveText(),
+    isAtStart: currentMoveIndex === -1,
+    isAtEnd: currentMoveIndex === moves.length - 1,
+    isFavorite: isFavorite,
+    user: user,
+    opening: opening,
+    onGoToStart: () => setCurrentMoveIndex(-1),
+    onStepBack: () => currentMoveIndex > -1 && setCurrentMoveIndex(currentMoveIndex - 1),
+    onStepForward: () => currentMoveIndex < moves.length - 1 && setCurrentMoveIndex(currentMoveIndex + 1),
+    onGoToEnd: () => setCurrentMoveIndex(moves.length - 1),
+    onFlip: () => setBoardFlipped(!boardFlipped),
+    onToggleFavorite: onToggleFavorite
+  };
+
   return (
     <div className="detail-view">
       <header className="detail-header">
         <button className="back-btn" onClick={onBack}>
           <ArrowLeftIcon />
-          Back to Openings
+          <span className="back-text">Back to Openings</span>
         </button>
       </header>
 
       <main className="detail-content">
-        <div className="detail-main">
+        <div className="detail-info-panel" ref={mobileBoardContainerRef}>
           <div className="detail-title-section">
             <h1 className="detail-title">{opening.name}</h1>
             <div className="detail-meta">
               <span className="detail-eco">{opening.eco || '—'}</span>
             </div>
           </div>
-          <div className="board-section">
-            <ChessboardJS 
-              fen={currentPosition} 
-              size={400} 
-              flipped={boardFlipped}
-              showNotation={true}
-              isVisible={true}
-            />
-            <div className="move-navigation">
-              <div className="move-status">{getCurrentMoveText()}</div>
-              <div className="move-controls">
-                <button className="move-btn" onClick={goToStart} disabled={currentMoveIndex === -1} title="Go to start"><SkipToStartIcon /></button>
-                <button className="move-btn" onClick={stepBack} disabled={currentMoveIndex === -1} title="Previous move"><StepBackIcon /></button>
-                <button className="move-btn" onClick={stepForward} disabled={currentMoveIndex === moves.length - 1} title="Next move"><StepForwardIcon /></button>
-                <button className="move-btn" onClick={goToEnd} disabled={currentMoveIndex === moves.length - 1} title="Go to end"><SkipToEndIcon /></button>
-              </div>
-            </div>
-            <div className="board-action-buttons">
-              <button className="detail-action-btn" onClick={() => setBoardFlipped(!boardFlipped)}><FlipIcon /> Flip Board</button>
-              <button className={`detail-action-btn ${isFavorite ? 'active' : ''}`} onClick={() => onToggleFavorite(opening)} disabled={!user} title={!user ? 'Sign in to add to repertoires' : isFavorite ? 'In repertoire(s)' : 'Add to repertoire'}>
-                <RepertoireIcon />
-                {!user ? 'Sign in to add' : isFavorite ? 'In Repertoire' : 'Add to Repertoire'}
-              </button>
-            </div>
+
+          <div className="mobile-board-panel">
+            <BoardComponent {...boardProps} size={mobileBoardSize} />
           </div>
+
           <div className="detail-info">
             <div className="detail-moves-section">
               <h3 className="section-heading">Opening Moves</h3>
@@ -145,6 +196,10 @@ const DetailView = ({
               </div>
             )}
           </div>
+        </div>
+        
+        <div className="detail-board-panel">
+          <BoardComponent {...boardProps} size={400} />
         </div>
       </main>
     </div>
