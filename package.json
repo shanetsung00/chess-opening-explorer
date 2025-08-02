@@ -1,5 +1,6 @@
 {
   "name": "chess-opening-explorer",
+  "homepage": "https://shanetsung00.github.io/chess-opening-explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +16,6 @@
     "react-window": "^1.8.11",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://shanetsung00.github.io/chess-opening-explorer",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
