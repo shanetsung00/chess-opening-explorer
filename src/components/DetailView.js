@@ -21,8 +21,7 @@ const RepertoireIcon = () => (
   </svg>
 );
 
-// This is now a standalone component, moved OUTSIDE of DetailView
-// It receives all the data and functions it needs as props.
+// This is the single, correct component for the board and all its controls
 const BoardComponent = ({ 
   size, 
   currentPosition, 
@@ -41,13 +40,15 @@ const BoardComponent = ({
   onToggleFavorite 
 }) => (
   <>
-    <ChessboardJS 
-      fen={currentPosition} 
-      size={size}
-      flipped={boardFlipped}
-      showNotation={true}
-      isVisible={true}
-    />
+    <div className="board-container">
+      <ChessboardJS 
+        fen={currentPosition} 
+        size={size}
+        flipped={boardFlipped}
+        showNotation={true}
+        isVisible={true}
+      />
+    </div>
     <div className="move-navigation">
       <div className="move-status">{currentMoveText}</div>
       <div className="move-controls">
@@ -138,7 +139,6 @@ const DetailView = ({
     return `${moveNumber}.${isWhiteMove ? '' : '..'} ${move}`;
   };
 
-  // Create an object of props to pass to the BoardComponent
   const boardProps = {
     currentPosition: currentPosition,
     boardFlipped: boardFlipped,
