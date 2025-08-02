@@ -1,5 +1,4 @@
-// components/DetailView.js - Final Corrected Version
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import './DetailView.css';
 import ChessboardJS from './ChessboardJS';
 import { 
@@ -35,6 +34,29 @@ const DetailView = ({
   const [currentPosition, setCurrentPosition] = useState('');
   const [isCalculating, setIsCalculating] = useState(false);
 
+  // --- START: New code for responsive board size ---
+  const mobileBoardContainerRef = useRef(null);
+  const [mobileBoardSize, setMobileBoardSize] = useState(300); // Default size
+
+  useLayoutEffect(() => {
+    // This function measures the container and sets the board size
+    const updateSize = () => {
+      if (mobileBoardContainerRef.current) {
+        // We subtract a little padding to ensure it fits perfectly
+        const newSize = mobileBoardContainerRef.current.offsetWidth - 2; 
+        setMobileBoardSize(newSize > 0 ? newSize : 300);
+      }
+    };
+
+    // Update size on initial render and on window resize
+    window.addEventListener('resize', updateSize);
+    updateSize(); 
+
+    // Cleanup listener
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  // --- END: New code for responsive board size ---
+
   useEffect(() => {
     const parsedMoves = parsePGN(opening.pgn);
     setMoves(parsedMoves);
@@ -61,10 +83,8 @@ const DetailView = ({
           setCurrentPosition(opening.fen);
         }
       }
-      
       setIsCalculating(false);
     };
-    
     calculatePosition();
   }, [currentMoveIndex, moves, opening.fen]);
 
@@ -85,48 +105,59 @@ const DetailView = ({
     return `${moveNumber}.${isWhiteMove ? '' : '..'} ${move}`;
   };
 
+  // A reusable component for the board and its controls
+  const BoardComponent = ({ size }) => (
+    <>
+      <ChessboardJS 
+        fen={currentPosition} 
+        size={size} // Use the dynamic size prop
+        flipped={boardFlipped}
+        showNotation={true}
+        isVisible={true}
+      />
+      <div className="move-navigation">
+        <div className="move-status">{getCurrentMoveText()}</div>
+        <div className="move-controls">
+          <button className="move-btn" onClick={goToStart} disabled={currentMoveIndex === -1} title="Go to start"><SkipToStartIcon /></button>
+          <button className="move-btn" onClick={stepBack} disabled={currentMoveIndex === -1} title="Previous move"><StepBackIcon /></button>
+          <button className="move-btn" onClick={stepForward} disabled={currentMoveIndex === moves.length - 1} title="Next move"><StepForwardIcon /></button>
+          <button className="move-btn" onClick={goToEnd} disabled={currentMoveIndex === moves.length - 1} title="Go to end"><SkipToEndIcon /></button>
+        </div>
+      </div>
+      <div className="board-action-buttons">
+        <button className="detail-action-btn" onClick={() => setBoardFlipped(!boardFlipped)}><FlipIcon /> Flip Board</button>
+        <button className={`detail-action-btn ${isFavorite ? 'active' : ''}`} onClick={() => onToggleFavorite(opening)} disabled={!user} title={!user ? 'Sign in to add to repertoires' : isFavorite ? 'In repertoire(s)' : 'Add to Repertoire'}>
+          <RepertoireIcon />
+          {!user ? 'Sign in to add' : isFavorite ? 'In Repertoire' : 'Add to Repertoire'}
+        </button>
+      </div>
+    </>
+  );
+
   return (
     <div className="detail-view">
       <header className="detail-header">
         <button className="back-btn" onClick={onBack}>
           <ArrowLeftIcon />
-          Back to Openings
+          <span className="back-text">Back to Openings</span>
         </button>
       </header>
 
       <main className="detail-content">
-        <div className="detail-main">
+        {/* Left Panel for Information */}
+        <div className="detail-info-panel" ref={mobileBoardContainerRef}>
           <div className="detail-title-section">
             <h1 className="detail-title">{opening.name}</h1>
             <div className="detail-meta">
               <span className="detail-eco">{opening.eco || '—'}</span>
             </div>
           </div>
-          <div className="board-section">
-            <ChessboardJS 
-              fen={currentPosition} 
-              size={400} 
-              flipped={boardFlipped}
-              showNotation={true}
-              isVisible={true}
-            />
-            <div className="move-navigation">
-              <div className="move-status">{getCurrentMoveText()}</div>
-              <div className="move-controls">
-                <button className="move-btn" onClick={goToStart} disabled={currentMoveIndex === -1} title="Go to start"><SkipToStartIcon /></button>
-                <button className="move-btn" onClick={stepBack} disabled={currentMoveIndex === -1} title="Previous move"><StepBackIcon /></button>
-                <button className="move-btn" onClick={stepForward} disabled={currentMoveIndex === moves.length - 1} title="Next move"><StepForwardIcon /></button>
-                <button className="move-btn" onClick={goToEnd} disabled={currentMoveIndex === moves.length - 1} title="Go to end"><SkipToEndIcon /></button>
-              </div>
-            </div>
-            <div className="board-action-buttons">
-              <button className="detail-action-btn" onClick={() => setBoardFlipped(!boardFlipped)}><FlipIcon /> Flip Board</button>
-              <button className={`detail-action-btn ${isFavorite ? 'active' : ''}`} onClick={() => onToggleFavorite(opening)} disabled={!user} title={!user ? 'Sign in to add to repertoires' : isFavorite ? 'In repertoire(s)' : 'Add to repertoire'}>
-                <RepertoireIcon />
-                {!user ? 'Sign in to add' : isFavorite ? 'In Repertoire' : 'Add to Repertoire'}
-              </button>
-            </div>
+
+          {/* This board will show only on mobile, with a responsive size */}
+          <div className="mobile-board-panel">
+            <BoardComponent size={mobileBoardSize} />
           </div>
+
           <div className="detail-info">
             <div className="detail-moves-section">
               <h3 className="section-heading">Opening Moves</h3>
@@ -145,6 +176,11 @@ const DetailView = ({
               </div>
             )}
           </div>
+        </div>
+
+        {/* Right Panel for Board (shows on desktop), with a fixed size */}
+        <div className="detail-board-panel">
+          <BoardComponent size={400} />
         </div>
       </main>
     </div>
