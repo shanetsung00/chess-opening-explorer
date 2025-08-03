@@ -19,11 +19,9 @@ concurrency:
 
 jobs:
   build-and-deploy:
-    # ADD THESE THREE LINES
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    # END OF ADDED LINES
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,7 +30,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          # Updated Node.js version to match Firebase requirements
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
