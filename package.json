@@ -1,6 +1,5 @@
 {
   "name": "chess-opening-explorer",
-  "homepage": "https://shanetsung00.github.io/chess-opening-explorer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
