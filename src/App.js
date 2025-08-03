@@ -65,7 +65,7 @@ const App = () => {
     return () => { css.remove(); };
   }, []);
 
-  useEffect(() => {
+ useEffect(() => {
     let unsubscribeAuth = null;
     let unsubscribeUser = null;
     const authTimeout = setTimeout(() => {
@@ -112,8 +112,7 @@ const App = () => {
       unsubscribeAuth();
       if (unsubscribeUser) unsubscribeUser();
     };
-    // -> eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [authLoading]);
 
   useEffect(() => {
     let cancelled = false;
