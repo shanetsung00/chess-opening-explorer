@@ -36,30 +36,6 @@
     "popular": true
   },
   {
-    "eco": "D30-D69",
-    "name": "Queen's Gambit Declined",
-    "pgn": "1. d4 d5 2. c4 e6",
-    "fen": "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
-    "description": "Most solid 1.d4 d5 defense; long-lasting theory",
-    "strategy": "Black declines the gambit and maintains a solid pawn structure. This leads to rich positional play with both sides fighting for central control.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
-  {
-    "eco": "D20-D29",
-    "name": "Queen's Gambit Accepted",
-    "pgn": "1. d4 d5 2. c4 dxc4",
-    "fen": "rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
-    "description": "Resurgent in top-level play due to dynamic play",
-    "strategy": "Black accepts the gambit pawn but aims to return it later under favorable circumstances. This leads to active piece play and central control battles.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
-  {
     "eco": "D10-D19",
     "name": "Slav Defense",
     "pgn": "1. d4 d5 2. c4 c6",
@@ -156,18 +132,6 @@
     "popular": true
   },
   {
-    "eco": "C25-C29",
-    "name": "Vienna Game",
-    "pgn": "1. e4 e5 2. Nc3",
-    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR w KQkq - 1 3",
-    "description": "Gaining steam in online play, especially with the Vienna Gambit",
-    "strategy": "White develops the knight and maintains flexibility. Can transpose to aggressive lines like the Vienna Gambit or more positional setups.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
-  {
     "eco": "A46-A48",
     "name": "London System",
     "pgn": "1. d4 Nf6 2. Bf4",
@@ -216,18 +180,6 @@
     "popular": true
   },
   {
-    "eco": "C30-C39",
-    "name": "King's Gambit",
-    "pgn": "1. e4 e5 2. f4",
-    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq - 0 2",
-    "description": "Less frequent today at high levels but widely played in blitz",
-    "strategy": "White sacrifices the f-pawn for rapid development and kingside attack. Romantic and tactical, popular in faster time controls for its attacking potential.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
-  {
     "eco": "A56-A79",
     "name": "Benoni Defense",
     "pgn": "1. d4 Nf6 2. c4 c5",
@@ -258,18 +210,6 @@
     "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2",
     "description": "A practical weapon at all levels",
     "strategy": "White develops the bishop aggressively, putting immediate pressure on Black's kingside. A practical choice that avoids main theoretical lines.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
-  {
-    "eco": "B21",
-    "name": "Smith-Morra Gambit",
-    "pgn": "1. e4 c5 2. d4 cxd4 3. c3",
-    "fen": "rnbqkbnr/pp1ppppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3",
-    "description": "Fun and dangerous for Black to face",
-    "strategy": "White sacrifices a pawn for rapid development and attacking chances. Popular among club players for its tactical nature and practical scoring results.",
     "isMainLine": true,
     "parentEco": null,
     "variations": [],

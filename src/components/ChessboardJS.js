@@ -1,90 +1,66 @@
-// components/ChessboardJS.js
-import React, { useState, useEffect, useRef } from 'react';
+// src/components/ChessboardJS.js
 
-const ChessboardJS = ({ fen, size = 280, id, flipped = false, isVisible = true, showNotation = false }) => {
+import React, { useEffect, useRef } from 'react';
+
+/**
+ * A responsive wrapper for the chessboard.js library.
+ * This component handles the creation, updating, and resizing of the board.
+ */
+const ChessboardJS = ({ fen, flipped = false, showNotation = false }) => {
   const boardRef = useRef(null);
   const boardInstanceRef = useRef(null);
-  const [shouldRender, setShouldRender] = useState(false);
 
-  // Only create the board when it becomes visible
+  // This primary useEffect hook handles the entire lifecycle of the chessboard.
+  // It runs only once when the component mounts.
   useEffect(() => {
-    if (isVisible && !shouldRender) {
-      // Small delay to prevent too many boards from loading at once
-      const timer = setTimeout(() => setShouldRender(true), 100);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, shouldRender]);
+    let board = null;
 
-  useEffect(() => {
-    if (window.ChessBoard && boardRef.current && shouldRender) {
-      if (boardInstanceRef.current) {
-        boardInstanceRef.current.destroy();
+    // Function to initialize the board
+    const initBoard = () => {
+      if (window.ChessBoard && boardRef.current) {
+        board = window.ChessBoard(boardRef.current, {
+          position: 'start', // Start with a blank board, will be updated by the next effect
+          draggable: false,
+          showNotation: showNotation,
+          pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+        });
+        boardInstanceRef.current = board;
       }
+    };
 
-      boardInstanceRef.current = window.ChessBoard(boardRef.current, {
-        position: fen || 'start',
-        draggable: false,
-        showNotation: showNotation,
-        orientation: flipped ? 'black' : 'white',
-        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
-      });
+    // Function to handle window resize events
+    const handleResize = () => {
+      if (boardInstanceRef.current) {
+        boardInstanceRef.current.resize();
+      }
+    };
 
-      boardInstanceRef.current.resize();
-    }
+    initBoard();
+    window.addEventListener('resize', handleResize);
 
+    // Cleanup function: This is crucial to prevent memory leaks.
+    // It runs when the component is unmounted.
     return () => {
+      window.removeEventListener('resize', handleResize);
       if (boardInstanceRef.current) {
         boardInstanceRef.current.destroy();
         boardInstanceRef.current = null;
       }
     };
-  }, [fen, flipped, shouldRender, showNotation]);
+  }, [showNotation]); // We only need to re-initialize if showNotation changes.
 
-  useEffect(() => {
-    if (boardInstanceRef.current && fen) {
-      boardInstanceRef.current.position(fen);
-    }
-  }, [fen]);
-
+  // A separate effect to update the board's position and orientation
+  // when the 'fen' or 'flipped' props change.
   useEffect(() => {
     if (boardInstanceRef.current) {
+      boardInstanceRef.current.position(fen, false); // false for no animation
       boardInstanceRef.current.orientation(flipped ? 'black' : 'white');
     }
-  }, [flipped]);
+  }, [fen, flipped]);
 
-  // Show placeholder until board is ready to render
-  if (!shouldRender) {
-    return (
-      <div 
-        style={{ 
-          width: size, 
-          height: size,
-          margin: '0 auto',
-          background: 'rgba(115, 115, 115, 0.1)',
-          borderRadius: '8px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#71717a',
-          fontSize: '0.8rem'
-        }}
-      >
-        Loading...
-      </div>
-    );
-  }
-
-  return (
-    <div 
-      ref={boardRef} 
-      id={id}
-      style={{ 
-        width: size, 
-        height: size,
-        margin: '0 auto'
-      }} 
-    />
-  );
+  // The component renders a simple div. The board library populates it,
+  // and CSS makes it responsive and square.
+  return <div ref={boardRef} style={{ width: '100%', aspectRatio: '1 / 1' }} />;
 };
 
 export default ChessboardJS;

@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+// src/components/DetailView.js
+
+import React, { useState, useEffect } from 'react';
 import './DetailView.css';
 import ChessboardJS from './ChessboardJS';
-import { 
-  ArrowLeftIcon, 
+import {
+  ArrowLeftIcon,
   FlipIcon,
   SkipToStartIcon,
   StepBackIcon,
@@ -11,6 +13,7 @@ import {
 } from './Icons';
 import { parsePGN, getPositionAfterMoves } from '../utils/chessUtils';
 
+// A simple icon component
 const RepertoireIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -21,32 +24,30 @@ const RepertoireIcon = () => (
   </svg>
 );
 
-// This is the single, correct component for the board and all its controls
-const BoardComponent = ({ 
-  size, 
-  currentPosition, 
-  boardFlipped, 
-  currentMoveText, 
+// A reusable component for the board and its controls.
+// Notice it no longer needs a 'size' prop.
+const BoardComponent = ({
+  currentPosition,
+  boardFlipped,
+  currentMoveText,
   isAtStart,
   isAtEnd,
   isFavorite,
   user,
   opening,
-  onGoToStart, 
-  onStepBack, 
-  onStepForward, 
-  onGoToEnd, 
-  onFlip, 
-  onToggleFavorite 
+  onGoToStart,
+  onStepBack,
+  onStepForward,
+  onGoToEnd,
+  onFlip,
+  onToggleFavorite
 }) => (
-  <>
+  <div className="board-section">
     <div className="board-container">
-      <ChessboardJS 
-        fen={currentPosition} 
-        size={size}
+      <ChessboardJS
+        fen={currentPosition}
         flipped={boardFlipped}
         showNotation={true}
-        isVisible={true}
       />
     </div>
     <div className="move-navigation">
@@ -65,37 +66,23 @@ const BoardComponent = ({
         {!user ? 'Sign in to add' : isFavorite ? 'In Repertoire' : 'Add to Repertoire'}
       </button>
     </div>
-  </>
+  </div>
 );
 
-const DetailView = ({ 
-  opening, 
-  onBack, 
-  onToggleFavorite, 
-  isFavorite, 
-  user, 
+const DetailView = ({
+  opening,
+  onBack,
+  onToggleFavorite,
+  isFavorite,
+  user,
 }) => {
   const [boardFlipped, setBoardFlipped] = useState(false);
   const [currentMoveIndex, setCurrentMoveIndex] = useState(-1);
   const [moves, setMoves] = useState([]);
   const [currentPosition, setCurrentPosition] = useState('');
   const [isCalculating, setIsCalculating] = useState(false);
-  
-  const mobileBoardContainerRef = useRef(null);
-  const [mobileBoardSize, setMobileBoardSize] = useState(300);
 
-  useLayoutEffect(() => {
-    const updateSize = () => {
-      if (mobileBoardContainerRef.current) {
-        const newSize = mobileBoardContainerRef.current.offsetWidth - 2; 
-        setMobileBoardSize(newSize > 0 ? newSize : 300);
-      }
-    };
-    window.addEventListener('resize', updateSize);
-    updateSize(); 
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-
+  // Parse moves and set initial position when the opening changes
   useEffect(() => {
     const parsedMoves = parsePGN(opening.pgn);
     setMoves(parsedMoves);
@@ -103,12 +90,12 @@ const DetailView = ({
     setCurrentPosition(opening.fen);
   }, [opening]);
 
+  // Calculate the FEN for the current move index
   useEffect(() => {
     const calculatePosition = async () => {
       if (moves.length === 0) return;
-      
       setIsCalculating(true);
-      
+
       if (currentMoveIndex === -1) {
         setCurrentPosition('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1');
       } else if (currentMoveIndex === moves.length - 1) {
@@ -119,7 +106,7 @@ const DetailView = ({
           setCurrentPosition(position);
         } catch (error) {
           console.warn('Error calculating position:', error);
-          setCurrentPosition(opening.fen);
+          setCurrentPosition(opening.fen); // Fallback to final position on error
         }
       }
       setIsCalculating(false);
@@ -127,33 +114,35 @@ const DetailView = ({
     calculatePosition();
   }, [currentMoveIndex, moves, opening.fen]);
 
+  // Get the text to display for the current move
   const getCurrentMoveText = () => {
     if (isCalculating) return "Calculating position...";
     if (currentMoveIndex === -1) return "Starting position";
     if (currentMoveIndex === moves.length - 1) return "Final position";
-    
+
     const moveNumber = Math.floor(currentMoveIndex / 2) + 1;
     const isWhiteMove = currentMoveIndex % 2 === 0;
     const move = moves[currentMoveIndex];
-    
+
     return `${moveNumber}.${isWhiteMove ? '' : '..'} ${move}`;
   };
 
+  // Prepare props for the BoardComponent
   const boardProps = {
-    currentPosition: currentPosition,
-    boardFlipped: boardFlipped,
+    currentPosition,
+    boardFlipped,
     currentMoveText: getCurrentMoveText(),
     isAtStart: currentMoveIndex === -1,
     isAtEnd: currentMoveIndex === moves.length - 1,
-    isFavorite: isFavorite,
-    user: user,
-    opening: opening,
+    isFavorite,
+    user,
+    opening,
     onGoToStart: () => setCurrentMoveIndex(-1),
     onStepBack: () => currentMoveIndex > -1 && setCurrentMoveIndex(currentMoveIndex - 1),
     onStepForward: () => currentMoveIndex < moves.length - 1 && setCurrentMoveIndex(currentMoveIndex + 1),
     onGoToEnd: () => setCurrentMoveIndex(moves.length - 1),
     onFlip: () => setBoardFlipped(!boardFlipped),
-    onToggleFavorite: onToggleFavorite
+    onToggleFavorite,
   };
 
   return (
@@ -166,7 +155,8 @@ const DetailView = ({
       </header>
 
       <main className="detail-content">
-        <div className="detail-info-panel" ref={mobileBoardContainerRef}>
+        {/* Left Panel: Info */}
+        <div className="detail-info-panel">
           <div className="detail-title-section">
             <h1 className="detail-title">{opening.name}</h1>
             <div className="detail-meta">
@@ -174,8 +164,9 @@ const DetailView = ({
             </div>
           </div>
 
-          <div className="mobile-board-panel">
-            <BoardComponent {...boardProps} size={mobileBoardSize} />
+          {/* Board for Mobile View */}
+          <div className="mobile-board-wrapper">
+             <BoardComponent {...boardProps} />
           </div>
 
           <div className="detail-info">
@@ -197,9 +188,10 @@ const DetailView = ({
             )}
           </div>
         </div>
-        
-        <div className="detail-board-panel">
-          <BoardComponent {...boardProps} size={400} />
+
+        {/* Right Panel: Board for Desktop View */}
+        <div className="desktop-board-wrapper">
+          <BoardComponent {...boardProps} />
         </div>
       </main>
     </div>
