@@ -140,7 +140,6 @@ const App = () => {
     return () => { cancelled = true; };
   }, []);
 
-  // *** CHANGE #1: UPDATE THE FILTERING LOGIC ***
   useEffect(() => {
     let list = [...openings];
     if (activeFilter === 'popular') {
@@ -178,19 +177,20 @@ const App = () => {
     }
   };
 
+  // *** THIS IS THE FIX ***
+  // When viewing a repertoire, we also need to exit the detail view.
   const handleViewRepertoire = (repertoire) => {
     setActiveFilter(repertoire.id);
     setShowRepertoireManager(false);
-    setSelectedOpening(null); // This line fixes the issue
+    setSelectedOpening(null); // This line ensures you go back to the main list
   };
 
-  // *** CHANGE #2: UPDATE THE COUNTS LOGIC ***
   const counts = useMemo(() => {
     const by = l => openings.filter(o => o.eco?.startsWith(l)).length;
     const popularCount = openings.filter(o => o.popular === true).length;
     const baseCounts = {
       all: openings.length,
-      popular: popularCount, // Add popular count
+      popular: popularCount,
       A: by('A'),
       B: by('B'),
       C: by('C'),
