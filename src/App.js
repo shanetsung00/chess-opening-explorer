@@ -2,8 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { auth, db } from './utils/firebase';
-import { 
-  createUserDocument, 
+import {
+  createUserDocument,
   migrateFavoritesToRepertoire,
   removeOpeningFromRepertoire
 } from './utils/authUtils';
@@ -32,7 +32,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [boardReady, setBoardReady] = useState(false);
-  
+
   const [user, setUser] = useState(null);
   const [userData, setUserData] = useState(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -41,9 +41,9 @@ const App = () => {
   const [authLoading, setAuthLoading] = useState(true);
 
   useEffect(() => {
-    if (window.ChessBoard) { 
-      setBoardReady(true); 
-      return; 
+    if (window.ChessBoard) {
+      setBoardReady(true);
+      return;
     }
     const css = document.createElement('link');
     css.rel = 'stylesheet';
@@ -140,9 +140,12 @@ const App = () => {
     return () => { cancelled = true; };
   }, []);
 
+  // *** CHANGE #1: UPDATE THE FILTERING LOGIC ***
   useEffect(() => {
     let list = [...openings];
-    if (activeFilter.startsWith('repertoire_')) {
+    if (activeFilter === 'popular') {
+      list = list.filter(o => o.popular === true);
+    } else if (activeFilter.startsWith('repertoire_')) {
       const repertoire = userData?.repertoires.find(r => r.id === activeFilter);
       list = repertoire ? list.filter(o => repertoire.openings.includes(o.uniqueId)) : [];
     } else if ('ABCDE'.includes(activeFilter)) {
@@ -180,9 +183,19 @@ const App = () => {
     setShowRepertoireManager(false);
   };
 
+  // *** CHANGE #2: UPDATE THE COUNTS LOGIC ***
   const counts = useMemo(() => {
     const by = l => openings.filter(o => o.eco?.startsWith(l)).length;
-    const baseCounts = { all: openings.length, A: by('A'), B: by('B'), C: by('C'), D: by('D'), E: by('E') };
+    const popularCount = openings.filter(o => o.popular === true).length;
+    const baseCounts = {
+      all: openings.length,
+      popular: popularCount, // Add popular count
+      A: by('A'),
+      B: by('B'),
+      C: by('C'),
+      D: by('D'),
+      E: by('E')
+    };
     userData?.repertoires?.forEach(rep => {
       baseCounts[rep.id] = rep.openings.length;
     });
@@ -194,20 +207,20 @@ const App = () => {
   if ((loading && openings.length === 0) || !boardReady || (authLoading && !user && userData === null)) {
     return <div className="loading">Loading…</div>;
   }
-  
+
   if (error) {
     return <div className="loading">Error: {error}</div>;
   }
 
   return (
     <div className="app">
-      <UserMenu 
+      <UserMenu
         user={user}
         onManageRepertoires={() => setShowRepertoireManager(true)}
         onSignOut={() => auth.signOut()}
         onSignIn={() => setShowAuthModal(true)}
       />
-      
+
       {selectedOpening ? (
         <DetailView
           opening={selectedOpening}
@@ -278,8 +291,8 @@ const App = () => {
           <div className="repertoire-panel" onClick={e => e.stopPropagation()}>
             <div className="panel-header">
               <h2>Manage Repertoires</h2>
-              <button 
-                className="panel-close-btn" 
+              <button
+                className="panel-close-btn"
                 onClick={() => setShowRepertoireManager(false)}
                 title="Close"
               >

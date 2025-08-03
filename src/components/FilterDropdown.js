@@ -5,8 +5,10 @@ const FilterDropdown = ({ activeFilter, onFilterChange, counts, userRepertoires 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // *** CHANGE #3: ADD "POPULAR OPENINGS" TO THE FILTERS ARRAY ***
   const filters = [
     { key: 'all', label: 'All Openings', count: counts.all },
+    { key: 'popular', label: 'Popular Openings', count: counts.popular },
     { key: 'A', label: 'ECO A - Flank & Irregular', count: counts.A },
     { key: 'B', label: 'ECO B - Semi-Open', count: counts.B },
     { key: 'C', label: 'ECO C - Open Games', count: counts.C },
@@ -56,19 +58,19 @@ const FilterDropdown = ({ activeFilter, onFilterChange, counts, userRepertoires 
         <span className="filter-dropdown-text">
           {getFilterLabel(activeFilter)}
         </span>
-        <svg 
+        <svg
           className={`filter-dropdown-arrow ${isOpen ? 'open' : ''}`}
-          width="20" 
-          height="20" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
           strokeWidth="2"
         >
           <polyline points="6,9 12,15 18,9"></polyline>
         </svg>
       </button>
-      
+
       {isOpen && (
         <div className="filter-dropdown-menu">
           {filters.map(filter => (
@@ -81,7 +83,7 @@ const FilterDropdown = ({ activeFilter, onFilterChange, counts, userRepertoires 
               <span className="filter-item-count">({filter.count})</span>
             </button>
           ))}
-          
+
           {userRepertoires.length > 0 && (
             <>
               <div className="dropdown-divider">My Repertoires</div>
