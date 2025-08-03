@@ -181,6 +181,7 @@ const App = () => {
   const handleViewRepertoire = (repertoire) => {
     setActiveFilter(repertoire.id);
     setShowRepertoireManager(false);
+    setSelectedOpening(null); // This line fixes the issue
   };
 
   // *** CHANGE #2: UPDATE THE COUNTS LOGIC ***
