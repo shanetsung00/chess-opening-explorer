@@ -177,19 +177,24 @@ const App = () => {
     }
   };
 
-  // *** THIS IS THE FIX ***
-  // When viewing a repertoire, we also need to exit the detail view.
   const handleViewRepertoire = (repertoire) => {
     setActiveFilter(repertoire.id);
     setShowRepertoireManager(false);
-    setSelectedOpening(null); // This line ensures you go back to the main list
+    setSelectedOpening(null);
   };
 
+  // *** THIS IS THE MAIN CHANGE ***
+  // The counts will now recalculate whenever the search query changes.
   const counts = useMemo(() => {
-    const by = l => openings.filter(o => o.eco?.startsWith(l)).length;
-    const popularCount = openings.filter(o => o.popular === true).length;
+    const listToCount = searchQuery.trim()
+      ? openings.filter(o => searchInOpening(o, searchQuery.trim()))
+      : openings;
+
+    const by = l => listToCount.filter(o => o.eco?.startsWith(l)).length;
+    const popularCount = listToCount.filter(o => o.popular === true).length;
+
     const baseCounts = {
-      all: openings.length,
+      all: listToCount.length,
       popular: popularCount,
       A: by('A'),
       B: by('B'),
@@ -197,11 +202,14 @@ const App = () => {
       D: by('D'),
       E: by('E')
     };
+
+    // Repertoire counts should also be based on the searched list
     userData?.repertoires?.forEach(rep => {
-      baseCounts[rep.id] = rep.openings.length;
+      baseCounts[rep.id] = listToCount.filter(o => rep.openings.includes(o.uniqueId)).length;
     });
+
     return baseCounts;
-  }, [openings, userData]);
+  }, [openings, userData, searchQuery]); // Added searchQuery as a dependency
 
   const refreshUserData = () => {};
 

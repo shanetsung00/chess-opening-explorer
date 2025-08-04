@@ -1121,6 +1121,17 @@
     "parentEco": null,
     "variations": []
   },
+    {
+    "eco": "B07",
+    "name": "Sicilian Defense: Closed Sicilian",
+    "pgn": "1. e4 c5 2. Nc3 d6 3. g3 g6 4. Bg2 Bg7",
+    "fen": "rnbqk1nr/pp2ppbp/3p2p1/2p5/4P3/2N3P1/PPPPPPBP/R1BQK1NR w KQkq - 2 5",
+    "description": "**Chapter 16: Closed Sicilian** - 2.Nc3 followed by g3 setup",
+    "strategy": "**Anti-Sicilian System**: Positional approach avoiding main line theory with kingside fianchetto development",
+    "isMainLine": true,
+    "parentEco": null,
+    "variations": []
+  },
   {
     "eco": "B08",
     "name": "Pirc Defense: Classical Variation",
@@ -2595,6 +2606,50 @@
     "parentEco": null,
     "variations": []
   },
+    {
+    "eco": "B32",
+    "name": "Sicilian Defense: Accelerated Dragon, Main System",
+    "pgn": "1. e4 c5 2. Nf3 g6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Bg7 6. Be3 Nf6 7. Bc4",
+    "fen": "r1bqk2r/pp1pppbp/2n2np1/8/2BNP3/2N1B3/PPP2PPP/R2QK2R b KQkq - 5 7",
+    "description": "The primary defensive setup against 1.e4",
+    "strategy": "Core theoretical line with rapid piece development and kingside fianchetto structure",
+    "isMainLine": true,
+    "parentEco": null,
+    "variations": []
+  },
+  {
+    "eco": "B32",
+    "name": "Sicilian Defense: Accelerated Dragon, Main Line with 8.Bb3",
+    "pgn": "1. e4 c5 2. Nf3 g6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Bg7 6. Be3 Nf6 7. Bc4 O-O 8. Bb3 a5",
+    "fen": "r1bq1rk1/1p1pppbp/2n2np1/p7/3NP3/1BN1B3/PPP2PPP/R2QK2R w KQ - 0 9",
+    "description": "**Main Line with 8.Bb3 a5** - Critical theoretical position",
+    "strategy": "**Line A: 9.a4 Ng4 10.Qxg4 Nxd4** - Sharp tactical sequence with piece sacrifices",
+    "isMainLine": true,
+    "parentEco": null,
+    "variations": []
+  },
+  {
+    "eco": "B32",
+    "name": "Sicilian Defense: Accelerated Dragon, Line B with 9.O-O",
+    "pgn": "1. e4 c5 2. Nf3 g6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Bg7 6. Be3 Nf6 7. Bc4 O-O 8. Bb3 a5 9. O-O d6",
+    "fen": "r1bq1rk1/1p2ppbp/2np1np1/p7/3NP3/1BN1B3/PPP2PPP/R2Q1RK1 w - - 0 10",
+    "description": "**Line B: 9.O-O d6** - Positional approach with castling",
+    "strategy": "**Sublines**: B1: 10.Ndb5, B2: 10.f3 Nxd4, B3: 10.h3 Nxd4 11.Bxd4 with further splits into B3a: 13.f4 Nd7 and B3b: 13.Qd3 Nd7",
+    "isMainLine": true,
+    "parentEco": null,
+    "variations": []
+  },
+  {
+    "eco": "B32",
+    "name": "Sicilian Defense: Accelerated Dragon, Line C with 9.f3",
+    "pgn": "1. e4 c5 2. Nf3 g6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Bg7 6. Be3 Nf6 7. Bc4 O-O 8. Bb3 a5 9. f3 d5",
+    "fen": "r1bq1rk1/1p2ppbp/2n2np1/p2p4/3NP3/1BN1BP2/PPP3PP/R2QK2R w KQ - 0 10",
+    "description": "**Line C: 9.f3 d5** - Central counterplay variation",
+    "strategy": "**Complex Sublines**: C1: 10.exd5 Nb4, C2: 10.Bxd5 Nxd5, C3: 10.Nxd5 Nxd5 - each with multiple theoretical continuations",
+    "isMainLine": true,
+    "parentEco": null,
+    "variations": []
+  },
   {
     "eco": "B33",
     "name": "Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Chelyabinsk Variation",
@@ -2624,6 +2679,17 @@
     "fen": "r1bqkb1r/5p1p/p1np4/1B1Npp2/4P3/N7/PPP2PPP/R2QK2R b KQkq - 0 11",
     "description": "A chess opening known as Sicilian Defense: Lasker-Pelikan Variation, Sveshnikov Variation, Peresypkin's Sacrifice.",
     "strategy": "Strategy information not available from this source.",
+    "isMainLine": true,
+    "parentEco": null,
+    "variations": []
+  },
+    {
+    "eco": "B36",
+    "name": "Sicilian Defense: Accelerated Dragon, Maróczy Bind Structure",
+    "pgn": "1. e4 c5 2. Nf3 g6 3. d4 cxd4 4. Nxd4 Nc6 5. c4 Nf6 6. Nc3 d6 7. Be3",
+    "fen": "r1bqkb1r/pp2ppbp/2np1np1/8/2PNP3/2N1B3/PP3PPP/R2QKB1R w KQkq - 1 8",
+    "description": "White's space-gaining pawn structure",
+    "strategy": "Key defensive setup against the bind structure",
     "isMainLine": true,
     "parentEco": null,
     "variations": []
