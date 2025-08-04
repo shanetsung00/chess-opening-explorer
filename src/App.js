@@ -156,6 +156,13 @@ const App = () => {
     setFiltered(list);
   }, [openings, activeFilter, searchQuery, userData]);
 
+  // Scroll to the top of the page when the user selects an opening
+  useEffect(() => {
+    if (selectedOpening) {
+      window.scrollTo(0, 0);
+    }
+  }, [selectedOpening]);
+
   const getCurrentRepertoire = () => {
     return userData?.repertoires?.find(rep => rep.id === activeFilter) || null;
   };
@@ -183,8 +190,6 @@ const App = () => {
     setSelectedOpening(null);
   };
 
-  // *** THIS IS THE MAIN CHANGE ***
-  // The counts will now recalculate whenever the search query changes.
   const counts = useMemo(() => {
     const listToCount = searchQuery.trim()
       ? openings.filter(o => searchInOpening(o, searchQuery.trim()))
@@ -203,13 +208,12 @@ const App = () => {
       E: by('E')
     };
 
-    // Repertoire counts should also be based on the searched list
     userData?.repertoires?.forEach(rep => {
       baseCounts[rep.id] = listToCount.filter(o => rep.openings.includes(o.uniqueId)).length;
     });
 
     return baseCounts;
-  }, [openings, userData, searchQuery]); // Added searchQuery as a dependency
+  }, [openings, userData, searchQuery]);
 
   const refreshUserData = () => {};
 
