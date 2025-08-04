@@ -9,19 +9,53 @@
     "isMainLine": true,
     "parentEco": null,
     "variations": [],
-    "popular": true
+    "popular": true,
+    "reactions": [
+      {
+        "opponentMove": "1. e4 c5 2. Nf3 d6",
+        "suggestedContinuation": "3. d4 cxd4 4. Nxd4 Nf6 5. Nc3",
+        "note": "Najdorf or Scheveningen possibilities"
+      },
+      {
+        "opponentMove": "1. e4 c5 2. Nf3 Nc6",
+        "suggestedContinuation": "3. d4 cxd4 4. Nxd4 Nf6 5. Nc3",
+        "note": "Sveshnikov or Classical - aggressive and sharp"
+      },
+      {
+        "opponentMove": "1. e4 c5 2. Nf3 e6",
+        "suggestedContinuation": "3. d4 cxd4 4. Nxd4 a6",
+        "note": "Kan or Taimanov - more flexible structure"
+      }
+    ]
   },
   {
     "eco": "C60-C99",
-    "name": "Ruy López (Spanish Opening)",
+    "name": "Ruy Lopez (Spanish Opening)",
     "pgn": "1. e4 e5 2. Nf3 Nc6 3. Bb5",
     "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
     "description": "Most classical 1.e4 e5 opening; used in world championships",
-    "strategy": "The Ruy López is one of the oldest and most classical chess openings. White develops quickly while putting pressure on Black's e5 pawn and the knight defending it.",
+    "strategy": "The Ruy Lopez is one of the oldest and most classical chess openings. White develops quickly while putting pressure on Black's e5 pawn and the knight defending it.",
     "isMainLine": true,
     "parentEco": null,
     "variations": [],
-    "popular": true
+    "popular": true,
+    "reactions": [
+      {
+        "opponentMove": "3... a6",
+        "suggestedContinuation": "4. Ba4 Nf6 5. O-O Be7",
+        "note": "Main Line (Closed Ruy Lopez)"
+      },
+      {
+        "opponentMove": "3... Nf6",
+        "suggestedContinuation": "4. O-O Nxe4 5. d4",
+        "note": "Open Ruy - more tactical play"
+      },
+      {
+        "opponentMove": "3... d6",
+        "suggestedContinuation": "4. c3 Bd7 5. d4",
+        "note": "Steinitz Defense - less common today"
+      }
+    ]
   },
   {
     "eco": "C50-C54",
@@ -48,17 +82,42 @@
     "popular": true
   },
   {
-    "eco": "E20-E59",
-    "name": "Nimzo-Indian Defense",
-    "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
-    "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
-    "description": "Positional, deeply studied defense vs 1.d4",
-    "strategy": "Black pins the knight and threatens to double White's pawns. This hypermodern defense focuses on controlling key central squares rather than occupying them.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "E20-E59",
+  "name": "Nimzo-Indian Defense",
+  "pgn": "1. d4 Nf6 2. c4 e6 3. Nc3 Bb4",
+  "fen": "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4",
+  "description": "Positional, deeply studied defense vs 1.d4",
+  "strategy": "Black pins the knight and threatens to double White's pawns. This hypermodern defense focuses on controlling key central squares rather than occupying them.",
+  "isMainLine": true,
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "4. Qc2",
+      "suggestedContinuation": "... O-O 5. a3 Bxc3+ 6. Qxc3 b6",
+      "note": "Classical Variation. White defends the c3 knight and prepares for the center. Black castles and prepares to fianchetto the queen's bishop."
+    },
+    {
+      "opponentMove": "4. e3",
+      "suggestedContinuation": "... b6 5. Bd3 Bb7",
+      "note": "Rubinstein Variation. White develops the kingside. Black prepares to control the center from the queenside."
+    },
+    {
+      "opponentMove": "4. a3",
+      "suggestedContinuation": "... Bxc3+ 5. bxc3 b6",
+      "note": "Sämisch Variation. White forces a pawn exchange. Black accepts the doubled pawns for better development and control of the e4 square."
+    },
+    {
+      "opponentMove": "4. Nf3",
+      "suggestedContinuation": "... O-O 5. Bg5 h6",
+      "note": "Three Knights Variation. A flexible developing move by White, often transposing to other lines. Black develops and challenges White's plans."
+    },
+    {
+      "opponentMove": "4. f3",
+      "suggestedContinuation": "... d5 5. a3 Bxc3+ 6. bxc3 c5",
+      "note": "Kmoch Variation. White tries to prepare e4. Black immediately strikes at the center to prevent this."
+    }
+  ]
+},
   {
     "eco": "E60-E99",
     "name": "King's Indian Defense",
@@ -69,20 +128,54 @@
     "isMainLine": true,
     "parentEco": null,
     "variations": [],
-    "popular": true
+    "popular": true,
+    "reactions": [
+      {
+        "opponentMove": "1. d4 Nf6 2. c4 g6 3. Nc3 Bg7",
+        "suggestedContinuation": "4. e4 d6 5. Nf3 O-O 6. Be2",
+        "note": "Main Line (Classical Variation)"
+      },
+      {
+        "opponentMove": "1. d4 Nf6 2. c4 g6 3. Nf3 Bg7",
+        "suggestedContinuation": "4. g3 O-O 5. Bg2 d6",
+        "note": "Fianchetto System - positional control"
+      },
+      {
+        "opponentMove": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
+        "suggestedContinuation": "4. cxd5 Nxd5 5. e4 Nxc3",
+        "note": "Transposes to Grunfeld - expect open center"
+      }
+    ]
   },
   {
-    "eco": "D70-D99",
-    "name": "Grünfeld Defense",
-    "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
-    "fen": "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4",
-    "description": "Dynamic reply to 1.d4; very theoretical",
-    "strategy": "Black immediately challenges White's center with d5, creating dynamic imbalances and tactical complications. Highly theoretical with sharp variations.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "D70-D99",
+  "name": "Grunfeld Defense",
+  "pgn": "1. d4 Nf6 2. c4 g6 3. Nc3 d5",
+  "fen": "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4",
+  "description": "Dynamic reply to 1.d4; very theoretical",
+  "strategy": "Black immediately challenges White's center with d5, creating dynamic imbalances and tactical complications. Highly theoretical with sharp variations.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "4. cxd5 Nxd5 5. e4 Nxc3",
+      "suggestedContinuation": "6. bxc3 Bg7 7. Nf3 c5",
+      "note": "Main line — sharp and highly theoretical"
+    },
+    {
+      "opponentMove": "4. Nf3 Bg7 5. Qb3",
+      "suggestedContinuation": "... dxc4 6. Qxc4 O-O",
+      "note": "Russian System — avoids early central push"
+    },
+    {
+      "opponentMove": "4. e3 Bg7 5. Nf3 O-O",
+      "suggestedContinuation": "6. Be2 c5",
+      "note": "Quiet system — White builds tension gradually"
+    }
+  ]
+},
   {
     "eco": "B10-B19",
     "name": "Caro-Kann Defense",
@@ -93,44 +186,112 @@
     "isMainLine": true,
     "parentEco": null,
     "variations": [],
-    "popular": true
+    "popular": true,
+    "reactions": [
+      {
+        "opponentMove": "1. e4 c6 2. d4 d5",
+        "suggestedContinuation": "3. Nc3 dxe4 4. Nxe4",
+        "note": "Classical Variation: balanced and well-studied"
+      },
+      {
+        "opponentMove": "1. e4 c6 2. d4 d5",
+        "suggestedContinuation": "3. e5 Bf5 4. Nf3 e6 5. Be2",
+        "note": "Advance Variation: squeeze space, play slow buildup"
+      },
+      {
+        "opponentMove": "1. e4 c6 2. d4 d5",
+        "suggestedContinuation": "3. exd5 cxd5 4. Bd3",
+        "note": "Exchange Variation: simplified, symmetrical plan"
+      }
+    ]
   },
   {
-    "eco": "C00-C19",
-    "name": "French Defense",
-    "pgn": "1. e4 e6",
-    "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
-    "description": "Rich pawn structures; polarizing but common",
-    "strategy": "Black prepares d5 and accepts a somewhat cramped but solid position. This leads to complex pawn structures and strategic maneuvering.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "C00-C19",
+  "name": "French Defense",
+  "pgn": "1. e4 e6",
+  "fen": "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+  "description": "Rich pawn structures; polarizing but common",
+  "strategy": "Black prepares d5 and accepts a somewhat cramped but solid position. This leads to complex pawn structures and strategic maneuvering.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "2. d4 d5 3. Nc3",
+      "suggestedContinuation": "... Nf6",
+      "note": "Classical Variation — flexible but sharp"
+    },
+    {
+      "opponentMove": "2. d4 d5 3. e5",
+      "suggestedContinuation": "... c5 4. c3 Nc6",
+      "note": "Advance Variation — strong space for White"
+    },
+    {
+      "opponentMove": "2. d4 d5 3. Nd2",
+      "suggestedContinuation": "... Nf6 4. e5 Nfd7",
+      "note": "Tarrasch — avoids early exchanges"
+    }
+  ]
+},
   {
-    "eco": "A10-A39",
-    "name": "English Opening",
-    "pgn": "1. c4",
-    "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
-    "description": "Flexible and used at top level (Carlsen, Kramnik)",
-    "strategy": "White controls d5 and e4 from the flank, maintaining flexibility in piece development. This opening can transpose to many different pawn structures.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "A10-A39",
+  "name": "English Opening",
+  "pgn": "1. c4",
+  "fen": "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1",
+  "description": "Flexible and used at top level (Carlsen, Kramnik)",
+  "strategy": "White controls d5 and e4 from the flank, maintaining flexibility in piece development. This opening can transpose to many different pawn structures.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "1... e5",
+      "suggestedContinuation": "2. Nc3 Nc6 3. g3",
+      "note": "Reversed Sicilian — sharp but familiar ideas"
+    },
+    {
+      "opponentMove": "1... c5",
+      "suggestedContinuation": "2. Nf3 Nc6 3. d4",
+      "note": "Transposes to Symmetrical English"
+    },
+    {
+      "opponentMove": "1... Nf6",
+      "suggestedContinuation": "2. Nc3 e6 3. Nf3",
+      "note": "Flexible development — many transpositions"
+    }
+  ]
+},
   {
-    "eco": "C44-C45",
-    "name": "Scotch Game",
-    "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
-    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
-    "description": "Direct and tactical 1.e4 e5 opening; resurging in online blitz",
-    "strategy": "White immediately opens the center with d4, leading to tactical complications. Popular in blitz games due to its direct, forcing nature.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "C44-C45",
+  "name": "Scotch Game",
+  "pgn": "1. e4 e5 2. Nf3 Nc6 3. d4",
+  "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 3",
+  "description": "Direct and tactical 1.e4 e5 opening; resurging in online blitz",
+  "strategy": "White immediately opens the center with d4, leading to tactical complications. Popular in blitz games due to its direct, forcing nature.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "3... exd4",
+      "suggestedContinuation": "4. Nxd4 Bc5",
+      "note": "Main line — active piece play"
+    },
+    {
+      "opponentMove": "3... exd4",
+      "suggestedContinuation": "4. Nxd4 Nf6 5. Nc3",
+      "note": "Classical Scotch — balanced and sharp"
+    },
+    {
+      "opponentMove": "3... exd4",
+      "suggestedContinuation": "4. Nxd4 Bb4+",
+      "note": "Schmidt Variation — early pin tactics"
+    }
+  ]
+},
   {
     "eco": "A46-A48",
     "name": "London System",
@@ -141,90 +302,226 @@
     "isMainLine": true,
     "parentEco": null,
     "variations": [],
-    "popular": true
+    "popular": true,
+    "reactions": [
+      {
+        "opponentMove": "1... d5",
+        "suggestedContinuation": "2. Nf3 Nf6 3. Bf4",
+        "note": "Standard London setup against classical structure"
+      },
+      {
+        "opponentMove": "1... Nf6",
+        "suggestedContinuation": "2. Bf4 e6 3. e3",
+        "note": "Develop bishop early before committing center"
+      },
+      {
+        "opponentMove": "1... g6",
+        "suggestedContinuation": "2. Nf3 Bg7 3. h3",
+        "note": "Prevents ...Bg4 pin and preps e3/Bd3"
+      }
+    ]
   },
   {
-    "eco": "E01-E09",
-    "name": "Catalan Opening",
-    "pgn": "1. d4 Nf6 2. c4 e6 3. g3",
-    "fen": "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3",
-    "description": "Top-level favorite due to strategic richness",
-    "strategy": "White combines the Queen's Gambit with a kingside fianchetto, creating pressure on the long diagonal while maintaining central control.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "E01-E09",
+  "name": "Catalan Opening",
+  "pgn": "1. d4 Nf6 2. c4 e6 3. g3",
+  "fen": "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3",
+  "description": "Top-level favorite due to strategic richness",
+  "strategy": "White combines the Queen's Gambit with a kingside fianchetto, creating pressure on the long diagonal while maintaining central control.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "3... d5 4. Bg2 Be7",
+      "suggestedContinuation": "5. Nf3 O-O 6. O-O",
+      "note": "Closed Catalan — quiet buildup with central pressure"
+    },
+    {
+      "opponentMove": "3... d5 4. Bg2 dxc4",
+      "suggestedContinuation": "5. Nf3 a6 6. O-O Nc6",
+      "note": "Open Catalan — immediate queenside activity"
+    },
+    {
+      "opponentMove": "3... Bb4+ 4. Bd2 a5",
+      "suggestedContinuation": "5. Nf3 O-O 6. Bg2",
+      "note": "Check variation — delays typical fianchetto lines"
+    }
+  ]
+},
   {
-    "eco": "C42-C43",
-    "name": "Petrov's Defense (Russian Game)",
-    "pgn": "1. e4 e5 2. Nf3 Nf6",
-    "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
-    "description": "Used for equality-seeking at elite level",
-    "strategy": "Black immediately counterattacks White's e4 pawn, leading to symmetrical positions. Often used when Black wants to minimize risk and play for equality.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "C42-C43",
+  "name": "Petrov's Defense (Russian Game)",
+  "pgn": "1. e4 e5 2. Nf3 Nf6",
+  "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+  "description": "Used for equality-seeking at elite level",
+  "strategy": "Black immediately counterattacks White's e4 pawn, leading to symmetrical positions. Often used when Black wants to minimize risk and play for equality.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "3. Nxe5 d6 4. Nf3 Nxe4",
+      "suggestedContinuation": "5. d4 d5",
+      "note": "Main line — balanced and symmetrical"
+    },
+    {
+      "opponentMove": "3. d4 Nxe4 4. Bd3",
+      "suggestedContinuation": "... d5 5. Nf3 Nc6",
+      "note": "White aims for fast development with central pressure"
+    },
+    {
+      "opponentMove": "3. Nc3 Nc6",
+      "suggestedContinuation": "4. Bb5 Bb4",
+      "note": "Four Knights with Petrov — hybrid structure"
+    }
+  ]
+},
   {
-    "eco": "B02-B05",
-    "name": "Alekhine's Defense",
-    "pgn": "1. e4 Nf6",
-    "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
-    "description": "Sharp and aggressive; common in faster time controls",
-    "strategy": "Black immediately attacks the e4 pawn, provoking White to advance and potentially overextend. Popular in blitz for its unbalancing potential.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "B02-B05",
+  "name": "Alekhine's Defense",
+  "pgn": "1. e4 Nf6",
+  "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+  "description": "Sharp and aggressive; common in faster time controls",
+  "strategy": "Black immediately attacks the e4 pawn, provoking White to advance and potentially overextend. Popular in blitz for its unbalancing potential.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "2. e5 Nd5 3. d4 d6",
+      "suggestedContinuation": "4. Nf3 Bg4",
+      "note": "Modern line — flexible counterplay"
+    },
+    {
+      "opponentMove": "2. Nc3 d5 3. e5 Nfd7",
+      "suggestedContinuation": "4. d4 e6",
+      "note": "Transposes into French-like structure"
+    },
+    {
+      "opponentMove": "2. e5 Nd5 3. c4 Nb6",
+      "suggestedContinuation": "4. d4 d6",
+      "note": "Chases knight early — sharper and riskier"
+    }
+  ]
+},
   {
-    "eco": "A56-A79",
-    "name": "Benoni Defense",
-    "pgn": "1. d4 Nf6 2. c4 c5",
-    "fen": "rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
-    "description": "Dynamic and combative systems vs 1.d4",
-    "strategy": "Black creates an asymmetrical pawn structure, fighting for piece activity and counterplay rather than central control. Leads to sharp, tactical games.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "A56-A79",
+  "name": "Benoni Defense",
+  "pgn": "1. d4 Nf6 2. c4 c5",
+  "fen": "rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+  "description": "Dynamic and combative systems vs 1.d4",
+  "strategy": "Black creates an asymmetrical pawn structure, fighting for piece activity and counterplay rather than central control. Leads to sharp, tactical games.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "3. d5",
+      "suggestedContinuation": "... e6 4. Nc3 exd5 5. cxd5 d6",
+      "note": "Modern Benoni — sharp and tactical"
+    },
+    {
+      "opponentMove": "3. Nf3",
+      "suggestedContinuation": "... cxd4 4. Nxd4 e5",
+      "note": "Old Benoni structure — quick center tension"
+    },
+    {
+      "opponentMove": "3. e3",
+      "suggestedContinuation": "... e6 4. Nc3 d5",
+      "note": "Quiet system — avoids sharp lines"
+    }
+  ]
+},
   {
-    "eco": "B06",
-    "name": "Modern Defense",
-    "pgn": "1. e4 g6",
-    "fen": "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
-    "description": "Rising in popularity online",
-    "strategy": "Black fianchettoes the king's bishop and allows White to build a pawn center, planning to undermine it later. Flexible and hypermodern approach.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "B06",
+  "name": "Modern Defense",
+  "pgn": "1. e4 g6",
+  "fen": "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+  "description": "Rising in popularity online",
+  "strategy": "Black fianchettoes the king's bishop and allows White to build a pawn center, planning to undermine it later. Flexible and hypermodern approach.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "2. d4 Bg7 3. Nc3 d6",
+      "suggestedContinuation": "4. Nf3 Nf6 5. Be2 O-O",
+      "note": "King's Indian setup"
+    },
+    {
+      "opponentMove": "2. d4 Bg7 3. c4 d6",
+      "suggestedContinuation": "4. Nc3 Nf6 5. Nf3 O-O",
+      "note": "Transposes to Modern/Pirc hybrid"
+    },
+    {
+      "opponentMove": "2. d4 Bg7 3. Nf3 c5",
+      "suggestedContinuation": "4. d5 d6",
+      "note": "Accelerated Modern Benoni structure"
+    }
+  ]
+},
   {
-    "eco": "A45",
-    "name": "Trompowsky Attack",
-    "pgn": "1. d4 Nf6 2. Bg5",
-    "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2",
-    "description": "A practical weapon at all levels",
-    "strategy": "White develops the bishop aggressively, putting immediate pressure on Black's kingside. A practical choice that avoids main theoretical lines.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  },
+  "eco": "A45",
+  "name": "Trompowsky Attack",
+  "pgn": "1. d4 Nf6 2. Bg5",
+  "fen": "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2",
+  "description": "A practical weapon at all levels",
+  "strategy": "White develops the bishop aggressively, putting immediate pressure on Black's kingside. A practical choice that avoids main theoretical lines.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "2... Ne4",
+      "suggestedContinuation": "3. Bf4 d5 4. e3",
+      "note": "Immediate challenge — forces early decision"
+    },
+    {
+      "opponentMove": "2... d5",
+      "suggestedContinuation": "3. Bxf6 gxf6 4. e3",
+      "note": "Doubling Black's pawns"
+    },
+    {
+      "opponentMove": "2... e6",
+      "suggestedContinuation": "3. e4 h6 4. Bxf6 Qxf6",
+      "note": "Flexible, less sharp continuation"
+    }
+  ]
+},
   {
-    "eco": "B01",
-    "name": "Scandinavian Defense",
-    "pgn": "1. e4 d5",
-    "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
-    "description": "Common at club level",
-    "strategy": "Black immediately challenges White's central pawn, forcing an early queen development. Simple to learn but can lead to early queen activity for White.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": [],
-    "popular": true
-  }
+  "eco": "B01",
+  "name": "Scandinavian Defense",
+  "pgn": "1. e4 d5",
+  "fen": "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+  "description": "Common at club level",
+  "strategy": "Black immediately challenges White's central pawn, forcing an early queen development. Simple to learn but can lead to early queen activity for White.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": [],
+  "popular": true,
+  "reactions": [
+    {
+      "opponentMove": "2. exd5 Qxd5 3. Nc3",
+      "suggestedContinuation": "... Qa5 4. d4 Nf6",
+      "note": "Main line — early queen retreat"
+    },
+    {
+      "opponentMove": "2. exd5 Nf6",
+      "suggestedContinuation": ". d4 Nxd5 4. Nf3",
+      "note": "Modern variation — avoids early queen exposure"
+    },
+    {
+      "opponentMove": "2. Nc3",
+      "suggestedContinuation": "... dxe4 3. Nxe4 Nf6",
+      "note": "Less common sideline — aiming for rapid development"
+    }
+  ]
+}
 ]

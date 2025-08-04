@@ -2783,6 +2783,17 @@
     "variations": []
   },
   {
+  "eco": "B45",
+  "name": "Sicilian Defense: Taimanov Variation",
+  "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3",
+  "fen": "r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5",
+  "description": "A chess opening known as Sicilian Defense: Taimanov Variation.",
+  "strategy": "A flexible defense for Black, often leading to solid and complex positions.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": []
+},
+  {
     "eco": "B48",
     "name": "Sicilian Defense: Taimanov Variation, Bastrikov Variation, English Attack",
     "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Qc7 6. Be3",
@@ -2792,6 +2803,17 @@
     "isMainLine": true,
     "parentEco": null,
     "variations": []
+  },
+  {
+  "eco": "B50",
+  "name": "Sicilian Defense",
+  "pgn": "1. e4 c5 2. Nf3 d6",
+  "fen": "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+  "description": "A popular and tactical defense to 1. e4, where Black immediately breaks symmetry and challenges White's control of the center.",
+  "strategy": "Black's strategy involves fighting for central control, creating an imbalanced position, and generating counterplay on the queenside or in the center. The pawn on d6 provides a solid foundation.",
+  "isMainLine": false,
+  "parentEco": null,
+  "variations": []
   },
   {
     "eco": "B63",
@@ -2815,6 +2837,7 @@
     "parentEco": null,
     "variations": []
   },
+
   {
     "eco": "B69",
     "name": "Sicilian Defense: Richter-Rauzer Variation, Neo-Modern Variation, Nyezhmetdinov Attack",
@@ -2826,6 +2849,31 @@
     "parentEco": null,
     "variations": []
   },
+  {
+  "eco": "B70",
+  "name": "Sicilian Defense, Dragon Variation",
+  "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6",
+  "fen": "rnbqkb1r/pp2pp1p/3p1np1/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+  "description": "The Dragon Variation is one of the sharpest and most aggressive responses to 1.e4. Black fianchettos the dark-square bishop to exert long-range pressure on the center and kingside. It often leads to sharp tactical battles, especially when White castles queenside and launches a kingside pawn storm.",
+  "strategy": "Black aims to counterattack with ...Bg7, ...O-O, and ...Nc6 while watching for central breaks or the thematic ...d5. White often plays the Yugoslav Attack (Be3, Qd2, f3, and O-O-O) to storm the kingside. Knowing theory is crucial, as one slip can be fatal in such double-edged positions.",
+  "reactions": [
+    {
+      "opponentMove": "6. Be3",
+      "suggestedContinuation": "6... Bg7 7. f3 O-O 8. Qd2 Nc6",
+      "note": "Yugoslav Attack — main line; sharpest play for both sides"
+    },
+    {
+      "opponentMove": "6. Be2",
+      "suggestedContinuation": "6... Bg7 7. O-O O-O",
+      "note": "Classical system; White plays it safe and avoids heavy theory"
+    },
+    {
+      "opponentMove": "6. f4",
+      "suggestedContinuation": "6... Bg7 7. Nf3 O-O",
+      "note": "Leads to aggressive lines but slightly offbeat"
+    }
+  ]
+},
   {
     "eco": "B72",
     "name": "Sicilian Defense: Dragon Variation, Classical Variation, Amsterdam Variation",
@@ -2970,100 +3018,23 @@
     "variations": []
   },
   {
-    "eco": "B80",
-    "name": "Sicilian Defense: Scheveningen Variation, Fianchetto Variation",
-    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. g3",
-    "fen": "rnbqkb1r/pp3ppp/3ppn2/8/3NP3/2N3P1/PPP2P1P/R1BQKB1R b KQkq - 0 6",
-    "description": "A chess opening known as Sicilian Defense: Scheveningen Variation, Fianchetto Variation.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
+     "eco": "B80",
+  "name": "Sicilian Defense: Scheveningen Variation",
+  "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e6",
+  "fen": "rnbqkb1r/pp3ppp/3ppn2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+  "description": "A chess opening known as Sicilian Defense: Scheveningen Variation.",
+  "strategy": "A solid defense with a small pawn center that controls key squares.",
+  "isMainLine": true,
+  "parentEco": null,
+  "variations": []
   },
   {
-    "eco": "B80",
-    "name": "Sicilian Defense: Scheveningen Variation, Vitolins Variation",
-    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. Bb5+",
-    "fen": "rnbqkb1r/pp3ppp/3ppn2/1B6/3NP3/2N5/PPP2PPP/R1BQK2R b KQkq - 1 6",
-    "description": "A chess opening known as Sicilian Defense: Scheveningen Variation, Vitolins Variation.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B82",
-    "name": "Sicilian Defense: Scheveningen Variation, Matanovic Attack",
-    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. f4",
-    "fen": "rnbqkb1r/pp3ppp/3ppn2/8/3NPP2/2N5/PPP3PP/R1BQKB1R b KQkq - 0 6",
-    "description": "A chess opening known as Sicilian Defense: Scheveningen Variation, Matanovic Attack.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B83",
-    "name": "Sicilian Defense: Scheveningen Variation, Classical Variation",
-    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6 6. Be2",
-    "fen": "rnbqkb1r/pp3ppp/3ppn2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 1 6",
-    "description": "A chess opening known as Sicilian Defense: Scheveningen Variation, Classical Variation.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B85",
-    "name": "Sicilian Defense: Scheveningen Variation, Classical Main Line",
-    "pgn": "1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nc6 5. Nc3 Qc7 6. Be2 a6 7. O-O Nf6 8. Be3 Be7 9. f4 d6 10. Qe1 O-O",
-    "fen": "r1b2rk1/1pq1bppp/p1nppn2/8/3NPP2/2N1B3/PPP1B1PP/R3QRK1 w - - 2 11",
-    "description": "A chess opening known as Sicilian Defense: Scheveningen Variation, Classical Main Line.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B92",
-    "name": "Sicilian Defense: Najdorf Variation, Opocensky Variation",
-    "pgn": "1. e4 c5 2. Nf3 Nf6 3. Nc3 d6 4. d4 cxd4 5. Nxd4 a6 6. Be2 e5 7. Nb3 Be6 8. Be3",
-    "fen": "rn1qkb1r/1p3ppp/p2pbn2/4p3/4P3/1NN1B3/PPP1BPPP/R2QK2R b KQkq - 3 8",
-    "description": "A chess opening known as Sicilian Defense: Najdorf Variation, Opocensky Variation.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B92",
-    "name": "Sicilian Defense: Najdorf Variation, Opocensky Variation, Modern Line",
-    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be2 e5 7. Nb3 Be7 8. O-O Be6",
-    "fen": "rn1qk2r/1p2bppp/p2pbn2/4p3/4P3/1NN5/PPP1BPPP/R1BQ1RK1 w kq - 4 9",
-    "description": "A chess opening known as Sicilian Defense: Najdorf Variation, Opocensky Variation, Modern Line.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B92",
-    "name": "Sicilian Defense: Najdorf Variation, Opocensky Variation, Traditional Line",
-    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Be2 e5 7. Nb3 Be7 8. O-O O-O",
-    "fen": "rnbq1rk1/1p2bppp/p2p1n2/4p3/4P3/1NN5/PPP1BPPP/R1BQ1RK1 w - - 4 9",
-    "description": "A chess opening known as Sicilian Defense: Najdorf Variation, Opocensky Variation, Traditional Line.",
-    "strategy": "Strategy information not available from this source.",
-    "isMainLine": true,
-    "parentEco": null,
-    "variations": []
-  },
-  {
-    "eco": "B96",
-    "name": "Sicilian Defense: Najdorf Variation, Polugaevsky Variation, Simagin Line",
-    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6 6. Bg5 e6 7. f4 b5 8. e5 dxe5 9. fxe5 Qc7 10. Qe2",
-    "fen": "rnb1kb1r/2q2ppp/p3pn2/1p2P1B1/3N4/2N5/PPP1Q1PP/R3KB1R b KQkq - 2 10",
-    "description": "A chess opening known as Sicilian Defense: Najdorf Variation, Polugaevsky Variation, Simagin Line.",
-    "strategy": "Strategy information not available from this source.",
+    "eco": "B90",
+    "name": "Sicilian Defense: Najdorf Variation",
+    "pgn": "1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6",
+    "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+    "description": "A chess opening known as Sicilian Defense: Najdorf Variation.",
+    "strategy": "A dynamic and complex defense for black, often leading to sharp, unbalanced positions.",
     "isMainLine": true,
     "parentEco": null,
     "variations": []

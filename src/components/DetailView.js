@@ -13,7 +13,6 @@ import {
 } from './Icons';
 import { parsePGN, getPositionAfterMoves } from '../utils/chessUtils';
 
-// A simple icon component
 const RepertoireIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -24,8 +23,6 @@ const RepertoireIcon = () => (
   </svg>
 );
 
-// A reusable component for the board and its controls.
-// Notice it no longer needs a 'size' prop.
 const BoardComponent = ({
   currentPosition,
   boardFlipped,
@@ -82,7 +79,6 @@ const DetailView = ({
   const [currentPosition, setCurrentPosition] = useState('');
   const [isCalculating, setIsCalculating] = useState(false);
 
-  // Parse moves and set initial position when the opening changes
   useEffect(() => {
     const parsedMoves = parsePGN(opening.pgn);
     setMoves(parsedMoves);
@@ -90,7 +86,6 @@ const DetailView = ({
     setCurrentPosition(opening.fen);
   }, [opening]);
 
-  // Calculate the FEN for the current move index
   useEffect(() => {
     const calculatePosition = async () => {
       if (moves.length === 0) return;
@@ -106,7 +101,7 @@ const DetailView = ({
           setCurrentPosition(position);
         } catch (error) {
           console.warn('Error calculating position:', error);
-          setCurrentPosition(opening.fen); // Fallback to final position on error
+          setCurrentPosition(opening.fen);
         }
       }
       setIsCalculating(false);
@@ -114,7 +109,6 @@ const DetailView = ({
     calculatePosition();
   }, [currentMoveIndex, moves, opening.fen]);
 
-  // Get the text to display for the current move
   const getCurrentMoveText = () => {
     if (isCalculating) return "Calculating position...";
     if (currentMoveIndex === -1) return "Starting position";
@@ -127,7 +121,6 @@ const DetailView = ({
     return `${moveNumber}.${isWhiteMove ? '' : '..'} ${move}`;
   };
 
-  // Prepare props for the BoardComponent
   const boardProps = {
     currentPosition,
     boardFlipped,
@@ -155,7 +148,6 @@ const DetailView = ({
       </header>
 
       <main className="detail-content">
-        {/* Left Panel: Info */}
         <div className="detail-info-panel">
           <div className="detail-title-section">
             <h1 className="detail-title">{opening.name}</h1>
@@ -164,9 +156,8 @@ const DetailView = ({
             </div>
           </div>
 
-          {/* Board for Mobile View */}
           <div className="mobile-board-wrapper">
-             <BoardComponent {...boardProps} />
+            <BoardComponent {...boardProps} />
           </div>
 
           <div className="detail-info">
@@ -186,10 +177,22 @@ const DetailView = ({
                 <p className="detail-strategy">{opening.strategy}</p>
               </div>
             )}
+            {opening.reactions && opening.reactions.length > 0 && (
+              <div className="detail-reactions-section">
+                <h3 className="section-heading">Common Opponent Reactions</h3>
+                <ul className="reactions-list">
+                  {opening.reactions.map((r, i) => (
+                    <li key={i}>
+                      <strong>{r.opponentMove}</strong>: {r.suggestedContinuation}
+                      {r.note && <> — <em>{r.note}</em></>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Right Panel: Board for Desktop View */}
         <div className="desktop-board-wrapper">
           <BoardComponent {...boardProps} />
         </div>

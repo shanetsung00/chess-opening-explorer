@@ -847,6 +847,31 @@
     "variations": []
   },
   {
+  "eco": "C41",
+  "name": "Philidor's Defense",
+  "pgn": "1. e4 e5 2. Nf3 d6",
+  "fen": "rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+  "description": "Philidor's Defense is a solid but somewhat passive opening where Black supports the e5 pawn with ...d6 instead of developing immediately.",
+  "strategy": "Black maintains a compact pawn structure but can face cramped positions if not careful. White typically tries to open the center quickly with d4 to capitalize on lead in development. Black may counter with ...Nf6 and ...Be7 before castling kingside, waiting for the right moment to strike with ...d5 or ...f5.",
+  "reactions": [
+    {
+      "opponentMove": "3. d4",
+      "suggestedContinuation": "3... Nf6 4. Nc3 Nbd7",
+      "note": "Main line; solid and flexible, preparing ...Be7 and castling"
+    },
+    {
+      "opponentMove": "3. Bc4",
+      "suggestedContinuation": "3... Be7 4. O-O Nf6",
+      "note": "Quiet development; leads to slower maneuvering games"
+    },
+    {
+      "opponentMove": "3. c3",
+      "suggestedContinuation": "3... Nf6 4. d4 Nbd7",
+      "note": "Delayed center; often transposes to main Philidor lines"
+    }
+  ]
+},
+  {
     "eco": "C41",
     "name": "Philidor Defense: Hanham Variation, Delmar Variation",
     "pgn": "1. e4 e5 2. Nf3 d6 3. d4 Nd7 4. Bc4 c6 5. c3",
