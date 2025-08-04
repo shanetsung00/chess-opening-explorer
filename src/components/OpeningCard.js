@@ -37,6 +37,12 @@ const OpeningCard = ({
   // Determine if we're in a specific repertoire view
   const isInCurrentRepertoire = currentRepertoire && currentRepertoire.openings.includes(opening.uniqueId);
   const isRepertoireView = !!currentRepertoire;
+  
+  // Process the raw PGN to keep turn numbers, then truncate.
+  // We split by space and take the first 15 parts, which is about 5 full turns (10 moves).
+  const pgnParts = opening.pgn ? opening.pgn.split(' ') : [];
+  const notation = pgnParts.slice(0, 15).join(' ');
+  const truncatedNotation = pgnParts.length > 15 ? `${notation} ...` : notation;
 
   return (
     <div
@@ -49,6 +55,10 @@ const OpeningCard = ({
         <div className="opening-title-section">
           <h3 className="opening-card-title">{opening.name}</h3>
           
+          {truncatedNotation && (
+            <p className="opening-moves">{truncatedNotation}</p>
+          )}
+
           {opening.parentName && (
             <p className="opening-parent">
               <LinkIcon />
